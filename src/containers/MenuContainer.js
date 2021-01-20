@@ -1,23 +1,23 @@
 import React from 'react'
 import styled from 'styled-components'
+import MainMenu from '../components/MainMenu'
 
 const MenuContainer = () => {
 
     const Menu = styled.nav`
-        background: red;
+        background: #2F3438;
         height: 100vh;
         flex-basis: 15vw;
         min-width: 350px;
         max-width: 800px;
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
     `
 
     return (
         <Menu>
-            <ul>
-                <li>Add Activities</li>
-                <li>Goals</li>
-                <li>Stats</li>
-            </ul>
+            <MainMenu />
         </Menu>
     )
 }
