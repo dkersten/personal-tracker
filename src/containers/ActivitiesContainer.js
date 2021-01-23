@@ -1,9 +1,16 @@
 import React from 'react'
+import styled from 'styled-components'
+import { headerLG } from '../mixins'
 
 const ActivitiesContainer = () => {
+
+    const Header = styled.h2`
+        ${ headerLG }
+    `
+
     return (
         <div>
-            <h2>Activities Container</h2>
+            <Header>See Your Activity</Header>
         </div>
     )
 }

@@ -4,13 +4,14 @@ import ActivitiesContainer from './ActivitiesContainer'
 import TrackerContainer from './TrackerContainer'
 import GoalsContainer from './GoalsContainer'
 import StatsContainer from './StatsContainer'
+import Welcome from '../components/Welcome'
 import { Route, Switch } from 'react-router-dom'
 
 const MainContainer = () => {
 
     const Main = styled.main`
         background: #25292E;
-        height: 100vh;
+        max-height: 100vh;
         flex-grow: 1;
         overflow-y: scroll;
         padding: 2rem 3rem;
@@ -19,6 +20,7 @@ const MainContainer = () => {
     return (
         <Main>
             <Switch>
+                <Route exact path="/" render={() => <Welcome />} />
                 <Route path="/activities" render={() => <ActivitiesContainer />} />
                 <Route path="/tracker" render={() => <TrackerContainer />} />
                 <Route path="/goals" render={() => <GoalsContainer />} />

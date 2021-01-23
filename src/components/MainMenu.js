@@ -14,29 +14,35 @@ const MainMenu = () => {
             font-family: 'Source Sans Pro', sans-serif;
             font-weight: 600;
             margin-bottom: 1rem;
+            text-decoration: none;
         `
         const IconContainer = styled.span`
             display: inline-block;
             margin-right: .75rem;
+        `
+
+        const StyledLink = styled(NavLink)`
+            text-decoration: none;
+            color: #f7f7f7;
         `
     
     return (
         <MenuNav>
 
             <NavItem>
-                <NavLink to="activities"><IconContainer><i class="fal fa-plus"></i></IconContainer> Add Activities</NavLink>
+                <StyledLink to="activities"><IconContainer><i class="fal fa-plus"></i></IconContainer> Add Activities</StyledLink>
             </NavItem>
 
             <NavItem>
-                <NavLink to="tracker"><IconContainer><i class="fal fa-calendar-alt"></i></IconContainer> Tracker</NavLink>
+                <StyledLink to="tracker"><IconContainer><i class="fal fa-calendar-alt"></i></IconContainer> Tracker</StyledLink>
             </NavItem>
 
             <NavItem>
-                <NavLink to="goals"><IconContainer><i class="fal fa-trophy"></i></IconContainer> Goals</NavLink>
+                <StyledLink to="goals"><IconContainer><i class="fal fa-trophy"></i></IconContainer> Goals</StyledLink>
             </NavItem>
 
             <NavItem>
-                <NavLink to="stats"><IconContainer><i class="fal fa-analytics"></i></IconContainer> Stats</NavLink>
+                <StyledLink to="stats"><IconContainer><i class="fal fa-analytics"></i></IconContainer> Stats</StyledLink>
             </NavItem>
 
         </MenuNav>
