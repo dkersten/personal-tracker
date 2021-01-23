@@ -4,6 +4,7 @@ import ActivitiesContainer from './ActivitiesContainer'
 import TrackerContainer from './TrackerContainer'
 import GoalsContainer from './GoalsContainer'
 import StatsContainer from './StatsContainer'
+import { Route, Switch } from 'react-router-dom'
 
 const MainContainer = () => {
 
@@ -17,10 +18,12 @@ const MainContainer = () => {
 
     return (
         <Main>
-            <ActivitiesContainer />
-            <TrackerContainer />
-            <GoalsContainer />
-            <StatsContainer />
+            <Switch>
+                <Route path="/activities" render={() => <ActivitiesContainer />} />
+                <Route path="/tracker" render={() => <TrackerContainer />} />
+                <Route path="/goals" render={() => <GoalsContainer />} />
+                <Route path="/stats" render={() => <StatsContainer />} />
+            </Switch>
         </Main>
     )
 }

@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import { NavLink } from 'react-router-dom'
 
 const MainMenu = () => {
         
@@ -21,10 +22,23 @@ const MainMenu = () => {
     
     return (
         <MenuNav>
-            <NavItem><IconContainer><i class="fal fa-plus"></i></IconContainer> Add Activities</NavItem>
-            <NavItem><IconContainer><i class="fal fa-calendar-alt"></i></IconContainer> Tracker</NavItem>
-            <NavItem><IconContainer><i class="fal fa-trophy"></i></IconContainer> Goals</NavItem>
-            <NavItem><IconContainer><i class="fal fa-analytics"></i></IconContainer> Stats</NavItem>
+
+            <NavItem>
+                <NavLink to="activities"><IconContainer><i class="fal fa-plus"></i></IconContainer> Add Activities</NavLink>
+            </NavItem>
+
+            <NavItem>
+                <NavLink to="tracker"><IconContainer><i class="fal fa-calendar-alt"></i></IconContainer> Tracker</NavLink>
+            </NavItem>
+
+            <NavItem>
+                <NavLink to="goals"><IconContainer><i class="fal fa-trophy"></i></IconContainer> Goals</NavLink>
+            </NavItem>
+
+            <NavItem>
+                <NavLink to="stats"><IconContainer><i class="fal fa-analytics"></i></IconContainer> Stats</NavLink>
+            </NavItem>
+
         </MenuNav>
     )
 }
