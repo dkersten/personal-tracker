@@ -1,6 +1,6 @@
 export const headerLG = () => {
     return `
-        font-size: 1.5rem;
+        font-size: 2rem;
         font-family: 'Source Sans Pro', sans-serif;
         color: #f7f7f7;
         font-weight: 600;
@@ -11,12 +11,13 @@ export const headerLG = () => {
 export const CardBaseStyling = () => {
     return `
         background: #2F3438;
-        margin: 1rem;
-        border-radius: 15px;
-        padding: 1rem;
+        margin: .75rem 1.5rem .75rem 0;
+        border-radius: 12px;
+        padding: 2rem 1rem;
+        overflow: hidden;
 
         * {
-            color: #f7f7f7;
+            color: #E2DDDD;
         }
         *:not(i) {
             font-family: 'Source Sans Pro', sans-serif;
