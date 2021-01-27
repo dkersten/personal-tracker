@@ -30,19 +30,19 @@ const MainMenu = () => {
         <MenuNav>
 
             <NavItem>
-                <StyledLink to="activities"><IconContainer><i class="fal fa-plus"></i></IconContainer> Add Activities</StyledLink>
+                <StyledLink to="activities"><IconContainer><i className="fal fa-plus"></i></IconContainer> Add Activities</StyledLink>
             </NavItem>
 
             <NavItem>
-                <StyledLink to="tracker"><IconContainer><i class="fal fa-calendar-alt"></i></IconContainer> Tracker</StyledLink>
+                <StyledLink to="tracker"><IconContainer><i className="fal fa-calendar-alt"></i></IconContainer> Tracker</StyledLink>
             </NavItem>
 
             <NavItem>
-                <StyledLink to="goals"><IconContainer><i class="fal fa-trophy"></i></IconContainer> Goals</StyledLink>
+                <StyledLink to="goals"><IconContainer><i className="fal fa-trophy"></i></IconContainer> Goals</StyledLink>
             </NavItem>
 
             <NavItem>
-                <StyledLink to="stats"><IconContainer><i class="fal fa-analytics"></i></IconContainer> Stats</StyledLink>
+                <StyledLink to="stats"><IconContainer><i className="fal fa-analytics"></i></IconContainer> Stats</StyledLink>
             </NavItem>
 
         </MenuNav>

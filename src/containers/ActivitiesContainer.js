@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { headerLG } from '../mixins'
+import AddActivityForm from '../components/AddActivityForm'
 
 const ActivitiesContainer = () => {
 
@@ -10,7 +11,8 @@ const ActivitiesContainer = () => {
 
     return (
         <div>
-            <Header>See Your Activity</Header>
+            <Header>Add an Activity</Header>
+            <AddActivityForm />
         </div>
     )
 }

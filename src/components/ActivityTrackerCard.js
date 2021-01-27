@@ -58,7 +58,7 @@ const ActivityTrackerCard = () => {
             <div className="top">
                 <h3>Activity Name</h3>
                 <span className="activity">
-                    <i class="far fa-running"></i>
+                    <i className="far fa-running"></i>
                 </span>
             </div>
             <span className="date">
