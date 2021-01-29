@@ -1,6 +1,67 @@
 import React, { useState } from 'react'
+import styled from 'styled-components'
+import { defaultFont } from '../mixins'
 
 const AddActivityForm = () => {
+
+    const FormContainer = styled.div`
+        
+        form {
+            margin-bottom: 3rem;
+
+            background: #303538;
+            padding: 2rem;
+            border-radius: 12px;
+            display: flex;
+            align-items: flex-start;
+            
+            button {
+                margin-left: auto;
+                align-self: flex-end;
+                background: #FD3E58;
+                border: none;
+                color: #f7f7f7;
+                padding: 10px 24px;
+                border-radius: 15px;
+                ${ defaultFont };
+
+                &:hover {
+                    background: #fd1c3b;
+                    cursor: pointer;
+                }
+            }
+        }
+
+        label {
+            color: #f7f7f7;
+            ${ defaultFont }
+
+            input, select {
+                display: block;
+                margin-top: .5rem;
+                margin-right: 1.5rem;
+                min-height: 30px;
+                background: #252A2E;
+                border: none;
+                padding: 0 .5rem;
+                color: #f7f7f7;
+
+                ::placeholder {
+                    color: #f7f7f7;
+                    ${ defaultFont }
+                    font-size: 1.05rem;
+                }
+            }
+
+            .name-input {
+                min-width: 250px;
+            }
+            
+            .desc-input {
+                min-width: 400px;
+            }
+        }
+    `
 
     const [ activityName, setActivityName ] = useState("")
     const [ activityDescription, setActivityDescription ] = useState("")
@@ -8,46 +69,56 @@ const AddActivityForm = () => {
 
     const handleActivityNameChange = e => {
         setActivityName(e.target.value)
-        console.log(activityName)
     }
 
     const handleActivityDescriptionChange = e => {
         setActivityDescription(e.target.value)
-        console.log(activityDescription)
     }
 
     const handleActivityCateogryChange = e => {
         setActivityCategory(e.target.value)
-        console.log(activityCategory)
     }
 
     const handleSubmit = e => {
         e.preventDefault()
-        console.log("submitted")
     }
 
     return (
-        <div>
+
+        <FormContainer>
             <form onSubmit={handleSubmit}>
 
-                <input name="activityName" onChange={handleActivityNameChange} value={activityName} placeholder="Activity Name"/>
+                <label>
+                    Activity Name:
+                    <input className="name-input" name="activityName" onChange={handleActivityNameChange} value={activityName} placeholder="Name"/>
+                </label>
 
                 <label>
                     Category:
-
-                    <select name="category" onChange={handleActivityCateogryChange}>
+                    <select value={activityCategory} name="category" onChange={handleActivityCateogryChange}>
                         <option value="misc"></option>
                         <option value="career">Career</option>
                         <option value="personal-wellness">Personal Wellness</option>
                     </select>
                 </label>
 
-                <input name="activityDescription" onChange={handleActivityDescriptionChange} value={activityDescription} placeholder="Activity Description"/>
+                <label>
+                    Activity Description:
+                    <input className="desc-input" name="activityDescription" onChange={handleActivityDescriptionChange} value={activityDescription} placeholder="Description" />
+                </label>
 
                 <button type="submit">Submit</button>
 
             </form>
-        </div>
+
+            <div>
+                Name: {activityName}
+                <br />
+                Category: {activityCategory}
+                <br />
+                Activity Description: {activityDescription}
+            </div>
+        </FormContainer>
     )
 }
 

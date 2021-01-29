@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { NavLink } from 'react-router-dom'
+import { defaultFont } from '../mixins'
 
 const MainMenu = () => {
         
@@ -11,7 +12,7 @@ const MainMenu = () => {
         const NavItem = styled.li`
             color: #f7f7f7;
             font-size: 1.5rem;
-            font-family: 'Source Sans Pro', sans-serif;
+            ${ defaultFont }
             font-weight: 600;
             margin-bottom: 1rem;
             text-decoration: none;

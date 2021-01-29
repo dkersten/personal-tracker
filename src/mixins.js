@@ -8,6 +8,12 @@ export const headerLG = () => {
     `
 }
 
+export const defaultFont = () => {
+    return `
+        font-family: 'Source Sans Pro', sans-serif;
+    `
+}
+
 export const CardBaseStyling = () => {
     return `
         background: #2F3438;
