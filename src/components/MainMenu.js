@@ -25,6 +25,21 @@ const MainMenu = () => {
         const StyledLink = styled(NavLink)`
             text-decoration: none;
             color: #f7f7f7;
+            position: relative;
+            z-index: 1;
+            color: #f7f7f7;
+            overflow: hidden;
+            background: linear-gradient(to right, #17A4F6, #17A4F6 49.8%, #f7f7f7 49.8%, #f7f7f7 105%);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-size: 200% 100%;
+            background-position: 100%;
+            transition: background-position .15s linear;
+
+            &:hover {
+                background-position: 0 100%;
+            }
         `
     
     return (
