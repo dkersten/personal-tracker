@@ -85,17 +85,19 @@ const AddActivityForm = () => {
 
     return (
 
-        <FormContainer>
-            <form onSubmit={handleSubmit}>
+        <FormContainer key="5">
+
+
+            <form key="1" onSubmit={handleSubmit}>
 
                 <label>
                     Activity Name:
-                    <input className="name-input" name="activityName" onChange={handleActivityNameChange} value={activityName} placeholder="Name"/>
+                    <input type="text" key="2" className="name-input" id="activityName" name="activityName" onChange={handleActivityNameChange} value={activityName} placeholder="Name"/>
                 </label>
 
                 <label>
                     Category:
-                    <select value={activityCategory} name="category" onChange={handleActivityCateogryChange}>
+                    <select key="3" value={activityCategory} id="activityCategory" name="category" onChange={handleActivityCateogryChange}>
                         <option value="misc"></option>
                         <option value="career">Career</option>
                         <option value="personal-wellness">Personal Wellness</option>
@@ -104,7 +106,7 @@ const AddActivityForm = () => {
 
                 <label>
                     Activity Description:
-                    <input className="desc-input" name="activityDescription" onChange={handleActivityDescriptionChange} value={activityDescription} placeholder="Description" />
+                    <input type="text" key="4" className="desc-input" id="activityDescription" name="activityDescription" onChange={handleActivityDescriptionChange} value={activityDescription} placeholder="Description" />
                 </label>
 
                 <button type="submit">Submit</button>
