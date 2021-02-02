@@ -8,6 +8,16 @@ export const headerLG = () => {
     `
 }
 
+export const headerMd = () => {
+    return `
+        font-size: 1.5rem;
+        font-family: 'Source Sans Pro', sans-serif;
+        color: #f7f7f7;
+        font-weight: 400;
+        margin-bottom: .5rem;
+    `
+}
+
 export const defaultFont = () => {
     return `
         font-family: 'Source Sans Pro', sans-serif;
