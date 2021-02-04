@@ -9,6 +9,10 @@ const ActivitiesWeek = () => {
 
     const Header = styled.h2`
      ${ headerMd }
+
+        i {
+            font-size: 1rem;
+        }
     `
 
     const CardContainer = styled.div`
@@ -19,7 +23,7 @@ const ActivitiesWeek = () => {
 
     return (
         <div>
-            <Header>Activites This Last Week</Header>
+            <Header><i class="fal fa-check"></i> Activites This Last Week</Header>
             <CardContainer className="card-container">
                 <ActivityTrackerCard />
                 <ActivityTrackerCard />
