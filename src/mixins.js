@@ -21,6 +21,7 @@ export const headerMd = () => {
 export const defaultFont = () => {
     return `
         font-family: 'Source Sans Pro', sans-serif;
+        color: #f7f7f7;
     `
 }
 
@@ -40,3 +41,16 @@ export const CardBaseStyling = () => {
         }
     `
 }
+
+export const SevenColLayout = () => {
+    return `
+        display: flex;
+        justify-content: space-around;
+
+        > * {
+            flex-basis: calc((100% / 7) - 2rem);
+            margin-left: 1rem;
+            margin-right: 1rem;
+        }
+    `
+} 

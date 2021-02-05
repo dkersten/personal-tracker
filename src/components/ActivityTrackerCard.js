@@ -8,7 +8,7 @@ const ActivityTrackerCard = () => {
 
     const Card = styled.div`
         ${CardBaseStyling}
-        max-width: 275px;
+        max-width: 300px;
         padding-top: calc(1rem + 5px);
 
         .top {
