@@ -4,6 +4,7 @@ import styled from 'styled-components'
 import {headerMd} from '../mixins'
 
 import ActivitiesMonthDayNames from '../components/ActivitiesMonthDayNames'
+import ActivitiesMonthWeekRow from './ActivitiesMonthWeekRow'
 
 const ActivitiesMonth = () => {
 
@@ -33,6 +34,10 @@ const ActivitiesMonth = () => {
 
             <CalendarContainer>
                 <ActivitiesMonthDayNames />
+                <ActivitiesMonthWeekRow />
+                <ActivitiesMonthWeekRow />
+                <ActivitiesMonthWeekRow />
+                <ActivitiesMonthWeekRow />
             </CalendarContainer>
         </MonthContainer>
     )
