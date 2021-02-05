@@ -1,8 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 
-const Welcome = () => {
-
+// styling
     const Container = styled.div`
         font-family: 'Source Sans Pro', sans-serif;
         font-weight: 600;
@@ -17,6 +16,8 @@ const Welcome = () => {
         line-height: 1.4;
         color: #f7f7f7;
     `
+
+const Welcome = () => {
 
     return (
         <Container>

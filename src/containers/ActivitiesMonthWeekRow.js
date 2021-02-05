@@ -5,11 +5,12 @@ import { SevenColLayout } from '../mixins'
 
 import ActivitiesMonthDay from '../components/ActivitiesMonthDay'
 
-const ActivitiesMonthWeekRow = () => {
-
-    const WeekRow = styled.div`
+// styling
+const WeekRow = styled.div`
         ${ SevenColLayout }
     `
+
+const ActivitiesMonthWeekRow = () => {
 
     return (
         <WeekRow>

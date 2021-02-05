@@ -5,8 +5,7 @@ import {headerMd} from '../mixins'
 
 import ActivityTrackerCard from '../components/ActivityTrackerCard'
 
-const ActivitiesWeek = () => {
-
+// styling
     const Header = styled.h2`
      ${ headerMd }
 
@@ -21,9 +20,11 @@ const ActivitiesWeek = () => {
         align-items: flex-start;
     `
 
+const ActivitiesWeek = () => {
+
     return (
         <div>
-            <Header><i class="fal fa-check"></i> Activites This Last Week</Header>
+            <Header><i className="fal fa-check"></i> Activites This Week</Header>
             <CardContainer className="card-container">
                 <ActivityTrackerCard />
                 <ActivityTrackerCard />

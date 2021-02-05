@@ -1,9 +1,9 @@
 import React from 'react'
 import styled from 'styled-components'
+
 import MainMenu from '../components/MainMenu'
 
-const MenuContainer = () => {
-
+// styling
     const Menu = styled.nav`
         background: #2F3438;
         height: 100vh;
@@ -14,6 +14,8 @@ const MenuContainer = () => {
         justify-content: center;
         align-items: flex-start;
     `
+
+const MenuContainer = () => {
 
     return (
         <Menu>

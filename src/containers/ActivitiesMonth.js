@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect }  from 'react'
 import styled from 'styled-components'
 
 import {headerMd} from '../mixins'
@@ -6,8 +6,7 @@ import {headerMd} from '../mixins'
 import ActivitiesMonthDayNames from '../components/ActivitiesMonthDayNames'
 import ActivitiesMonthWeekRow from './ActivitiesMonthWeekRow'
 
-const ActivitiesMonth = () => {
-
+// styling
     const MonthContainer = styled.div`
         margin-top: 2.5rem;
     `
@@ -28,9 +27,11 @@ const ActivitiesMonth = () => {
         border-radius: 12px;
     `
 
+const ActivitiesMonth = () => {
+
     return (
         <MonthContainer>
-            <Header><i class="fal fa-check"></i> Activites This Last Month</Header>
+            <Header><i className="fal fa-check"></i> Activites This Month</Header>
 
             <CalendarContainer>
                 <ActivitiesMonthDayNames />

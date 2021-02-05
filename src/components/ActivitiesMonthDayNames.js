@@ -3,8 +3,7 @@ import styled from 'styled-components'
 
 import { defaultFont, SevenColLayout } from '../mixins'
 
-const ActivitiesMonthDayNames = () => {
-
+// styling
     const DayNames = styled.div`
         ${ defaultFont }
         ${ SevenColLayout }
@@ -15,6 +14,8 @@ const ActivitiesMonthDayNames = () => {
             font-size: 1.25rem;
         }
     `
+
+const ActivitiesMonthDayNames = () => {
 
     return (
         <DayNames>

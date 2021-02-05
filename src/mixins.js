@@ -13,7 +13,7 @@ export const headerMd = () => {
         font-size: 1.5rem;
         font-family: 'Source Sans Pro', sans-serif;
         color: #f7f7f7;
-        font-weight: 400;
+        font-weight: 600;
         margin-bottom: .5rem;
     `
 }

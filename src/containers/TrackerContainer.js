@@ -7,13 +7,13 @@ import { headerLG } from '../mixins'
 import ActivitiesWeek from './ActivitiesWeek'
 import ActivitiesMonth from './ActivitiesMonth'
 
-// component
-const TrackerContainer = () => {
-    
+// styling
     const Header = styled.h2`
         ${ headerLG }
         margin-bottom: 3rem;
     `
+
+const TrackerContainer = () => {
 
     return (
         <div>

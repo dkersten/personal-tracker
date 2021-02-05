@@ -1,14 +1,14 @@
 import React from 'react'
 import styled from 'styled-components'
+import { Route, Switch } from 'react-router-dom'
+
 import ActivitiesContainer from './ActivitiesContainer'
 import TrackerContainer from './TrackerContainer'
 import GoalsContainer from './GoalsContainer'
 import StatsContainer from './StatsContainer'
 import Welcome from '../components/Welcome'
-import { Route, Switch } from 'react-router-dom'
 
-const MainContainer = () => {
-
+// styling
     const Main = styled.main`
         background: #25292E;
         max-height: 100vh;
@@ -16,6 +16,8 @@ const MainContainer = () => {
         overflow-y: scroll;
         padding: 2rem 3rem;
     `
+
+const MainContainer = () => {
 
     return (
         <Main>

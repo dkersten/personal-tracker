@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
+
 import { defaultFont } from '../mixins'
 
-const AddActivityForm = () => {
-
+// styling
     const FormContainer = styled.div`
         
         form {
@@ -62,6 +62,8 @@ const AddActivityForm = () => {
             }
         }
     `
+
+const AddActivityForm = () => {
 
     const [ activityName, setActivityName ] = useState("")
     const [ activityDescription, setActivityDescription ] = useState("")

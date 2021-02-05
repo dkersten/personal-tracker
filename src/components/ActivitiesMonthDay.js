@@ -3,8 +3,7 @@ import styled from 'styled-components'
 
 import { defaultFont } from '../mixins'
 
-const ActivitiesMonthDay = (props) => {
-
+// styling
     const DayCard = styled.div`
         background: #252A2E;
         display: flex;
@@ -30,6 +29,8 @@ const ActivitiesMonthDay = (props) => {
         margin-top: .75rem;
         margin-bottom: .5rem;
     `
+
+const ActivitiesMonthDay = (props) => {
 
     const activityIndicator = () => {
         if (props.activity) {
