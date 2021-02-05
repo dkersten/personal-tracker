@@ -46,6 +46,7 @@ export const SevenColLayout = () => {
     return `
         display: flex;
         justify-content: space-around;
+        flex-wrap: wrap;
 
         > * {
             flex-basis: calc((100% / 7) - 2rem);

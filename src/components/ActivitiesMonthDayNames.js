@@ -6,7 +6,8 @@ import { defaultFont, SevenColLayout } from '../mixins'
 // styling
     const DayNames = styled.div`
         ${ defaultFont }
-        ${ SevenColLayout }
+        display: flex;
+        justify-content: space-around;
 
         span {
             text-align: center;
