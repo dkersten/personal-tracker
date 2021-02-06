@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import { defaultFont, SevenColLayout } from '../mixins'
+import { defaultFont } from '../mixins'
 
 // styling
     const DayNames = styled.div`
@@ -13,6 +13,9 @@ import { defaultFont, SevenColLayout } from '../mixins'
             text-align: center;
             font-weight: 600;
             font-size: 1.25rem;
+            flex-basis: calc((100% / 7) - 2rem);
+            margin-left: 1rem;
+            margin-right: 1rem;
         }
     `
 
@@ -20,13 +23,13 @@ const ActivitiesMonthDayNames = () => {
 
     return (
         <DayNames>
-            <span>Sunday</span>
-            <span>Monday</span>
-            <span>Tuesday</span>
-            <span>Wednesday</span>
-            <span>Thursday</span>
-            <span>Friday</span>
-            <span>Saturday</span>
+            <span>Sun</span>
+            <span>Mon</span>
+            <span>Tue</span>
+            <span>Wed</span>
+            <span>Thu</span>
+            <span>Fri</span>
+            <span>Sat</span>
         </DayNames>
     )
 }

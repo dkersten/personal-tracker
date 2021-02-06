@@ -45,7 +45,7 @@ export const CardBaseStyling = () => {
 export const SevenColLayout = () => {
     return `
         display: flex;
-        justify-content: space-around;
+        justify-content: flex-start;
         flex-wrap: wrap;
 
         > * {
