@@ -11,6 +11,10 @@ import { defaultFont } from '../mixins'
         align-items: center;
         margin-top: 1.25rem;
         border-radius: 10px;
+
+        &.hidden {
+            display: none;
+        }
     `
 
     const ActivityDot = styled.span`
@@ -41,7 +45,10 @@ const ActivitiesMonthDay = (props) => {
     }
 
     return (
-        <DayCard>
+        <DayCard
+            // hide last week row of calendar if its not needed
+            className={`${props.num === null && props.index >= 35 ? 'hidden': ''}`}
+        >
             <DayNum className="day-num">{props.num}</DayNum>
             <span className="activity-indicator">
                 { activityIndicator() }

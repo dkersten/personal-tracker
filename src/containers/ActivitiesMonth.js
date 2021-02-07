@@ -93,7 +93,12 @@ const ActivitiesMonth = () => {
         
         // populate a standard calendar for the month
         for (let i= 0; i < 42; i++) {
-            daysArray.push(<ActivitiesMonthDay key={i} num={null} activity={false} />)
+            daysArray.push(<ActivitiesMonthDay
+                key={i}
+                num={null}
+                activity={false}
+                index={i}
+            />)
         }
 
         // insert days for this month into array using splice

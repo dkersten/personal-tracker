@@ -4,7 +4,7 @@ import styled from 'styled-components'
 
 import { CardBaseStyling } from '../mixins'
 
-// stlying
+// styling
     const Card = styled.div`
     ${CardBaseStyling}
     max-width: 300px;

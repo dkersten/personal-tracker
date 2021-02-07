@@ -6,6 +6,7 @@ import { headerLG } from '../mixins'
 
 import ActivitiesWeek from './ActivitiesWeek'
 import ActivitiesMonth from './ActivitiesMonth'
+import ActivitiesYear from './ActivitiesYear'
 
 // styling
     const Header = styled.h2`
@@ -20,6 +21,7 @@ const TrackerContainer = () => {
             <Header>Tracker Container</Header>
             <ActivitiesWeek />
             <ActivitiesMonth />
+            <ActivitiesYear />
         </div>
     )
 }
