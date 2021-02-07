@@ -10,6 +10,9 @@ import { CardBaseStyling, headerSm } from '../mixins'
         flex-basis: calc((100% / 3) - 1rem);
         padding-top: calc(1rem + 5px);
         background: #252A2E;
+        display: flex;
+        flex-direction: column;
+        position: relative;
     `
 
     const MonthName = styled.h4`
@@ -20,26 +23,24 @@ import { CardBaseStyling, headerSm } from '../mixins'
     const TaskContainer = styled.div`
         display: flex;
         flex-direction: column;
+        margin-bottom: 1.5rem;
     `
 
     const ActivityName = styled.span`
-        margin-bottom: .75rem;
+        margin-bottom: .6rem;
         margin-left: 1.5rem;
         position: relative;
+        line-height: 1.2;
         
         &::before {
             content: '\f058';
             font-family: FontAwesome;
             left: -1.37rem;
             top: 3px;
-            color: #FD3E58;
+            color: #17A4F6;
             position: absolute;
             font-size: .7rem;
         }
-    `
-
-    const ActivityDate = styled.span`
-        color: #17A4F6;
     `
 
     const ShowAllBtn = styled.button`
@@ -47,24 +48,28 @@ import { CardBaseStyling, headerSm } from '../mixins'
         border: none;
         display: block;
         margin-top: 1rem;
+        margin-left: auto;
         font-size: 1rem;
+        position: absolute;
+        bottom: 1rem;
+        right: 1rem;
 
         &:hover {
             cursor: pointer;
         }
     `
 
-const MonthCard = () => {
+const MonthCard = (props) => {
     return (
         <Card>
-            <MonthName>January</MonthName>
+            <MonthName>{props.month}</MonthName>
 
             <TaskContainer>
-                <ActivityName>Activity Name: <ActivityDate>Jan: 2</ActivityDate></ActivityName>
+                <ActivityName>{props.activityName1}</ActivityName>
 
-                <ActivityName>Activity Name: <ActivityDate>Jan: 4</ActivityDate></ActivityName>
+                <ActivityName>{props.activityName2}</ActivityName>
 
-                <ActivityName>Activity Name: <ActivityDate>Jan: 7</ActivityDate></ActivityName>
+                <ActivityName>{props.activityName3}</ActivityName>
 
             </TaskContainer>
             <div className="see-more-container">
