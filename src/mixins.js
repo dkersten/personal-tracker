@@ -18,6 +18,16 @@ export const headerMd = () => {
     `
 }
 
+export const headerSm = () => {
+    return `
+        font-size: 1.35rem;
+        font-family: 'Source Sans Pro', sans-serif;
+        color: #f7f7f7;
+        font-weight: 600;
+        margin-bottom: .5rem;
+    `
+}
+
 export const defaultFont = () => {
     return `
         font-family: 'Source Sans Pro', sans-serif;
@@ -54,4 +64,20 @@ export const SevenColLayout = () => {
             margin-right: 1rem;
         }
     `
-} 
+}
+
+export const ButtonStandard = () => {
+    return `
+        background: #FD3E58;
+        border: none;
+        color: #f7f7f7;
+        padding: 10px 24px;
+        border-radius: 15px;
+        font-size: 1.05rem;
+
+        &:hover {
+            background: #fd1c3b;
+            cursor: pointer;
+        }
+    `
+}

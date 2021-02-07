@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
 
-import { defaultFont } from '../mixins'
+import { ButtonStandard, defaultFont } from '../mixins'
 
 // styling
     const FormContainer = styled.div`
@@ -18,17 +18,8 @@ import { defaultFont } from '../mixins'
             button {
                 margin-left: auto;
                 align-self: flex-end;
-                background: #FD3E58;
-                border: none;
-                color: #f7f7f7;
-                padding: 10px 24px;
-                border-radius: 15px;
                 ${ defaultFont };
-
-                &:hover {
-                    background: #fd1c3b;
-                    cursor: pointer;
-                }
+                ${ ButtonStandard }
             }
         }
 
