@@ -11,6 +11,8 @@ import MonthCard from './MonthCard'
         justify-content: flex-start;
     `
 
+
+
 const ActivitiesYearMonth = () => {
     return (
         <MonthsContainer>

@@ -13,10 +13,11 @@ import { CardBaseStyling } from '../mixins'
     .top {
         display: flex;
         justify-content: space-between;
-        margin-bottom: .5rem;
+        margin-bottom: 1rem;
 
         h3 {
-            font-size: 1.5rem;
+            font-size: 1.25rem;
+            line-height: 1.3;
             flex-basis: 85%;
             margin-right: 1rem;
         }
@@ -51,22 +52,22 @@ import { CardBaseStyling } from '../mixins'
     }
     `
 
-const ActivityTrackerCard = () => {
+const ActivityTrackerCard = (props) => {
 
     return (
         <Card>
             <div className="activity-type-indicator"></div>
             <div className="top">
-                <h3>Activity Name</h3>
+                <h3>{props.category}: {props.name}</h3>
                 <span className="activity">
                     <i className="far fa-running"></i>
                 </span>
             </div>
             <span className="date">
-                Jan. 23, 2021
+                {props.date}
             </span>
             <div className="description">
-            No, Pop-pop does not get a treat, I just brought you a [bleep]ing pizza.
+            {props.description}
             </div>
         </Card>
     )
