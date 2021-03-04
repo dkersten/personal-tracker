@@ -39,7 +39,7 @@ const activities = [
         activityCategory: 'Personal Finance',
         activityName: 'Credit Card Payment',
         activityDate: 'Mar. 9, 2021',
-        activityDescription: 'Paid off Discover time in full'
+        activityDescription: 'Paid off Discover Card on time in full'
     }
 ]
 

@@ -20,7 +20,7 @@ console.log(activities)
     const CardContainer = styled.div`
         display: flex;
         flex-wrap: wrap;
-        align-items: flex-start;
+        align-items: stretch;
     `
 
 const ActivitiesWeek = () => {

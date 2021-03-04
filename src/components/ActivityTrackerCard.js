@@ -9,6 +9,7 @@ import { CardBaseStyling } from '../mixins'
     ${CardBaseStyling}
     max-width: 300px;
     padding-top: calc(1rem + 5px);
+    flex-basis: calc(33.333% - 1.5rem);
 
     .top {
         display: flex;
@@ -54,13 +55,35 @@ import { CardBaseStyling } from '../mixins'
 
 const ActivityTrackerCard = (props) => {
 
+    // function that dynamically returns an icon based on activity category
+    const renderActivityIcon = () => {
+        
+        if (props.category === 'Exercise') {
+            return(
+                <i class="fad fa-running"></i>
+            )
+        } else if (props.category === 'Career Growth') {
+            return(
+                <i class="fad fa-code"></i>
+            )
+        } else if (props.category === 'Personal Finance') {
+            return(
+                <i class="fad fa-sack-dollar"></i>
+            )
+        } else if (props.category === 'Personal Growth') {
+            return(
+                <i class="fad fa-user-astronaut"></i>
+            )
+        }
+    }
+
     return (
         <Card>
             <div className="activity-type-indicator"></div>
             <div className="top">
                 <h3>{props.category}: {props.name}</h3>
                 <span className="activity">
-                    <i className="far fa-running"></i>
+                    { renderActivityIcon() }
                 </span>
             </div>
             <span className="date">
