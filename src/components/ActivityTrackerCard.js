@@ -84,19 +84,19 @@ const ActivityTrackerCard = (props) => {
         
         if (props.category === 'Exercise') {
             return(
-                <i class="fad fa-running"></i>
+                <i className="fad fa-running"></i>
             )
         } else if (props.category === 'Career Growth') {
             return(
-                <i class="fad fa-code"></i>
+                <i className="fad fa-code"></i>
             )
         } else if (props.category === 'Personal Finance') {
             return(
-                <i class="fad fa-sack-dollar"></i>
+                <i className="fad fa-sack-dollar"></i>
             )
         } else if (props.category === 'Personal Growth') {
             return(
-                <i class="fad fa-user-astronaut"></i>
+                <i className="fad fa-user-astronaut"></i>
             )
         }
     }

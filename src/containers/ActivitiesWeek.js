@@ -6,8 +6,6 @@ import activities from '../ActivitiesTestData.js'
 
 import ActivityTrackerCard from '../components/ActivityTrackerCard'
 
-console.log(activities)
-
 // styling
     const Header = styled.h2`
      ${ headerMd }
