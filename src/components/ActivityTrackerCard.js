@@ -43,13 +43,37 @@ import { CardBaseStyling } from '../mixins'
 
     .activity-type-indicator {
         height: 5px;
-        background-color: #4ede4d;
-        background-image: linear-gradient(90deg, #4ede4d 0%, #21e277 100%);
         width: calc(100% + 2rem);
         margin-left: -1rem;
         margin-top: calc(-1rem - 5px);
         margin-bottom: 2rem;
-        /* border-radius: */
+
+        &.exercise {
+            background: #cb2d3e;
+            background: -webkit-linear-gradient(to right, #ef473a, #cb2d3e);
+            background: linear-gradient(to right, #ef473a, #cb2d3e);
+
+        }
+
+        &.career {
+            background: #6a3093;
+            background: -webkit-linear-gradient(to right, #a044ff, #6a3093);
+            background: linear-gradient(to right, #a044ff, #6a3093);
+
+        }
+
+        &.finance {
+            background-color: #4ede4d;
+            background: -webkit-linear-gradient(to right, #4ede4d 0%, #21e277 100%);
+            background-image: linear-gradient(to right, #4ede4d 0%, #21e277 100%);
+        }
+
+        &.personal {
+            background: #0575E6;
+            background: -webkit-linear-gradient(to right, #0575E6, #032abc);
+            background: linear-gradient(to right, #0575E6, #032abc);
+
+        }
     }
     `
 
@@ -77,9 +101,31 @@ const ActivityTrackerCard = (props) => {
         }
     }
 
+    // function that dynamically styles the gradient bar on top of the card based on activity category
+    const renderActivityGradientIndicator = () => {
+
+        if (props.category === 'Exercise') {
+            return(
+                <div className="activity-type-indicator exercise"></div>
+            )
+        } else if (props.category === 'Career Growth') {
+            return(
+                <div className="activity-type-indicator career"></div>
+            )
+        } else if (props.category === 'Personal Finance') {
+            return(
+                <div className="activity-type-indicator finance"></div>
+            )
+        } else if (props.category === 'Personal Growth') {
+            return(
+                <div className="activity-type-indicator personal"></div>
+            )
+        }
+    }
+
     return (
         <Card>
-            <div className="activity-type-indicator"></div>
+            { renderActivityGradientIndicator() }
             <div className="top">
                 <h3>{props.category}: {props.name}</h3>
                 <span className="activity">
