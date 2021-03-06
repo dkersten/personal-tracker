@@ -2,9 +2,6 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
 
-// import Modal from 'react-bootstrap/Modal'
-import 'bootstrap/dist/css/bootstrap.min.css'
-
 import { headerLG } from '../mixins'
 
 import ActivitiesWeek from './ActivitiesWeek'
