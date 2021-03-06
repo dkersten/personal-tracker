@@ -21,9 +21,11 @@ import ReusableModal from '../components/Modal'
 const TrackerContainer = () => {
 
     const [isModalOpen, setIsModalOpen] = useState(false)
+    const [modalContentType, setModalContentType] = useState("general")
 
-    const toggleModal = () => {
+    const toggleModal = (type) => {
         setIsModalOpen(!isModalOpen)
+        setModalContentType(type)
     }
 
     return (
@@ -31,12 +33,16 @@ const TrackerContainer = () => {
             <button onClick={toggleModal}>Open Toggle</button>
             <Header>Tracker Container</Header>
             <ActivitiesWeek />
-            <ActivitiesMonth />
+            <ActivitiesMonth 
+                toggleModal={toggleModal}
+                test={"fuck"}
+            />
             <ActivitiesYear />
             
             <ReusableModal
                 show={isModalOpen}
                 toggleModal={toggleModal}
+                modalContentType={modalContentType}
             />
         </div>
     )

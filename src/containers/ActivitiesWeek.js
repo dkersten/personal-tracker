@@ -37,13 +37,6 @@ const ActivitiesWeek = () => {
                         description={activity.activityDescription}
                     />)
                 }
-
-                {/* <ActivityTrackerCard />
-                <ActivityTrackerCard />
-                <ActivityTrackerCard />
-                <ActivityTrackerCard />
-                <ActivityTrackerCard />
-                <ActivityTrackerCard /> */}
             </CardContainer>
         </div>
     )

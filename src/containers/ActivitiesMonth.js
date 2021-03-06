@@ -31,7 +31,7 @@ import ActivitiesMonthDay from '../components/ActivitiesMonthDay'
         ${ SevenColLayout }
     `
 
-const ActivitiesMonth = () => {
+const ActivitiesMonth = (props) => {
 
     useEffect(() => {
         // call function to see what the current month is
@@ -103,7 +103,12 @@ const ActivitiesMonth = () => {
 
         // insert days for this month into array using splice
         for (let i = 0; i < numDays; i++) {
-            daysArray.splice(firstDayOfMonth + i, 1, <ActivitiesMonthDay key={firstDayOfMonth + i} num={i + 1} activity={true} /> )
+            daysArray.splice(firstDayOfMonth + i, 1, <ActivitiesMonthDay
+                key={firstDayOfMonth + i}
+                num={i + 1}
+                activity={true}
+                toggleModal={props.toggleModal}
+            /> )
         }
 
         return daysArray
