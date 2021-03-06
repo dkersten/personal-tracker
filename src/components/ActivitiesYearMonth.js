@@ -13,7 +13,7 @@ import MonthCard from './MonthCard'
 
 
 
-const ActivitiesYearMonth = () => {
+const ActivitiesYearMonth = (props) => {
     return (
         <MonthsContainer>
             <MonthCard
@@ -21,6 +21,7 @@ const ActivitiesYearMonth = () => {
                 activityName1={"Exercise: cardio"}
                 activityName2={"Exercise: strength training"}
                 activityName3={"Career: applied to new job"}
+                toggleModal={props.toggleModal}
             />
             
             <MonthCard
@@ -28,6 +29,7 @@ const ActivitiesYearMonth = () => {
                 activityName1={"Career: interviewed for new position"}
                 activityName2={"Exercise: strength training"}
                 activityName3={"Exercise: cardio"}
+                toggleModal={props.toggleModal}
             />
             
             <MonthCard
@@ -35,6 +37,7 @@ const ActivitiesYearMonth = () => {
                 activityName1={"Exercise: cardio"}
                 activityName2={"Applied to new job"}
                 activityName3={"Exercise: Strength training"}
+                toggleModal={props.toggleModal}
             />
             
             <MonthCard
@@ -42,6 +45,7 @@ const ActivitiesYearMonth = () => {
                 activityName1={"Exercise: cardio"}
                 activityName2={"Applied to new job"}
                 activityName3={"Exercise: Strength training"}
+                toggleModal={props.toggleModal}
             />
             
             <MonthCard
@@ -49,6 +53,7 @@ const ActivitiesYearMonth = () => {
                 activityName1={"Exercise: cardio"}
                 activityName2={"Applied to new job"}
                 activityName3={"Exercise: Strength training"}
+                toggleModal={props.toggleModal}
             />
             
             <MonthCard
@@ -56,6 +61,7 @@ const ActivitiesYearMonth = () => {
                 activityName1={"Exercise: cardio"}
                 activityName2={"Applied to new job"}
                 activityName3={"Exercise: Strength training"}
+                toggleModal={props.toggleModal}
             />
             
             <MonthCard
@@ -63,6 +69,7 @@ const ActivitiesYearMonth = () => {
                 activityName1={"Exercise: cardio"}
                 activityName2={"Applied to new job"}
                 activityName3={"Exercise: Strength training"}
+                toggleModal={props.toggleModal}
             />
             
             <MonthCard
@@ -70,6 +77,7 @@ const ActivitiesYearMonth = () => {
                 activityName1={"Exercise: cardio"}
                 activityName2={"Applied to new job"}
                 activityName3={"Exercise: Strength training"}
+                toggleModal={props.toggleModal}
             />
             
             <MonthCard
@@ -77,6 +85,7 @@ const ActivitiesYearMonth = () => {
                 activityName1={"Exercise: cardio"}
                 activityName2={"Applied to new job"}
                 activityName3={"Exercise: Strength training"}
+                toggleModal={props.toggleModal}
             />
             
             <MonthCard
@@ -84,6 +93,7 @@ const ActivitiesYearMonth = () => {
                 activityName1={"Exercise: cardio"}
                 activityName2={"Applied to new job"}
                 activityName3={"Exercise: Strength training"}
+                toggleModal={props.toggleModal}
             />
             
             <MonthCard
@@ -91,6 +101,7 @@ const ActivitiesYearMonth = () => {
                 activityName1={"Exercise: cardio"}
                 activityName2={"Applied to new job"}
                 activityName3={"Exercise: Strength training"}
+                toggleModal={props.toggleModal}
             />
             
             <MonthCard
@@ -98,6 +109,7 @@ const ActivitiesYearMonth = () => {
                 activityName1={"Exercise: cardio"}
                 activityName2={"Applied to new job"}
                 activityName3={"Exercise: Strength training"}
+                toggleModal={props.toggleModal}
             />
             
         </MonthsContainer>

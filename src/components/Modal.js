@@ -10,6 +10,8 @@ const ReusableModal = (props) => {
             return 'General content'
         } else if (props.modalContentType === "month overview") {
             return 'Month Overview'
+        } else if (props.modalContentType === 'year overview') {
+            return 'Year Overview'
         }
     }
 

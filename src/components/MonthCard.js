@@ -60,6 +60,13 @@ import { CardBaseStyling, headerSm } from '../mixins'
     `
 
 const MonthCard = (props) => {
+
+    // console.log(props)
+
+    const openModal = () => {
+        props.toggleModal('year overview')
+    }
+
     return (
         <Card>
             <MonthName>{props.month}</MonthName>
@@ -73,7 +80,7 @@ const MonthCard = (props) => {
 
             </TaskContainer>
             <div className="see-more-container">
-                <ShowAllBtn>See All Tasks</ShowAllBtn>
+                <ShowAllBtn onClick={openModal}>See All Tasks</ShowAllBtn>
             </div>
         </Card>
     )

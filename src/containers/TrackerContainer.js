@@ -35,9 +35,10 @@ const TrackerContainer = () => {
             <ActivitiesWeek />
             <ActivitiesMonth 
                 toggleModal={toggleModal}
-                test={"fuck"}
             />
-            <ActivitiesYear />
+            <ActivitiesYear 
+                toggleModal={toggleModal}
+            />
             
             <ReusableModal
                 show={isModalOpen}

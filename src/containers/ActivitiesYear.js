@@ -26,12 +26,15 @@ import ActivitiesYearMonth from '../components/ActivitiesYearMonth'
         border-radius: 12px;
     `
 
-const ActivitiesYear = () => {
+const ActivitiesYear = (props) => {
+    
     return (
         <YearContainer>
             <Header><i className="fal fa-check"></i> Activities This Year</Header>
             <CalendarMonthContainer>
-                <ActivitiesYearMonth />
+                <ActivitiesYearMonth
+                    toggleModal={props.toggleModal}
+                />
             </CalendarMonthContainer>
         </YearContainer>
     )
