@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
+import DatePicker from 'react-datepicker'
 
 import { ButtonStandard, defaultFont } from '../mixins'
 
@@ -13,11 +14,16 @@ import { ButtonStandard, defaultFont } from '../mixins'
             padding: 2rem;
             border-radius: 12px;
             display: flex;
-            align-items: flex-start;
+            flex-wrap: wrap;
+
+            .input-container {
+                margin: 1rem .75rem;
+                flex-basis: calc(50% - 1.5rem);
+            }
             
             button {
-                margin-left: auto;
-                align-self: flex-end;
+                margin-left: right;
+                align-self: flex-start;
                 ${ defaultFont };
                 ${ ButtonStandard }
             }
@@ -26,30 +32,24 @@ import { ButtonStandard, defaultFont } from '../mixins'
         label {
             color: #f7f7f7;
             ${ defaultFont }
+            width: 100%;
 
             input, select {
                 display: block;
                 margin-top: .5rem;
-                margin-right: 1.5rem;
+                /* margin-right: 1.5rem; */
                 min-height: 30px;
                 background: #252A2E;
                 border: none;
                 padding: 0 .5rem;
                 color: #f7f7f7;
+                width: 100%;
 
                 ::placeholder {
                     color: #f7f7f7;
                     ${ defaultFont }
                     font-size: 1.05rem;
                 }
-            }
-
-            .name-input {
-                min-width: 250px;
-            }
-            
-            .desc-input {
-                min-width: 400px;
             }
         }
     `
@@ -58,6 +58,7 @@ const AddActivityForm = () => {
 
     const [ activityName, setActivityName ] = useState("")
     const [ activityDescription, setActivityDescription ] = useState("")
+    const [ activityDate, setActivityDate] = useState(new Date())
     const [ activityCategory, setActivityCategory ] = useState("misc")
 
     const handleActivityNameChange = e => {
@@ -66,6 +67,10 @@ const AddActivityForm = () => {
 
     const handleActivityDescriptionChange = e => {
         setActivityDescription(e.target.value)
+    }
+
+    const handleActivityDateChange = date => {
+        setActivityDate(date)
     }
 
     const handleActivityCateogryChange = e => {
@@ -78,31 +83,52 @@ const AddActivityForm = () => {
 
     return (
 
-        <FormContainer key="5">
+        <FormContainer key={6}>
 
 
-            <form key="1" onSubmit={handleSubmit}>
+            <form key={1} onSubmit={handleSubmit}>
 
-                <label>
-                    Activity Name:
-                    <input type="text" key="2" className="name-input" id="activityName" name="activityName" onChange={handleActivityNameChange} value={activityName} placeholder="Name"/>
-                </label>
+                <div className="input-container">
+                    <label>
+                        Activity Name:
+                        <input type="text" key={2} className="name-input" id="activityName" name="activityName" onChange={handleActivityNameChange} value={activityName} placeholder="Name"/>
+                    </label>
+                </div>
 
-                <label>
-                    Category:
-                    <select key="3" value={activityCategory} id="activityCategory" name="category" onChange={handleActivityCateogryChange}>
-                        <option value="misc"></option>
-                        <option value="career">Career</option>
-                        <option value="personal-wellness">Personal Wellness</option>
-                    </select>
-                </label>
+                <div className="input-container">
+                    <label>
+                        Activity Category:
+                        <select key={3} value={activityCategory} id="activityCategory" name="category" onChange={handleActivityCateogryChange}>
+                            <option value="misc"></option>
+                            <option value="career">Career</option>
+                            <option value="personal-wellness">Personal Wellness</option>
+                        </select>
+                    </label>
+                </div>
+                
+                <div className="input-container">
+                    <label>
+                        Activity Date:
+                        <DatePicker
+                            key={4}
+                            selected={ activityDate }
+                            onChange={handleActivityDateChange}
+                            name="date"
+                            dateFormat="MM/dd/yyyy"
+                        />
+                    </label>
+                </div>
 
-                <label>
-                    Activity Description:
-                    <input type="text" key="4" className="desc-input" id="activityDescription" name="activityDescription" onChange={handleActivityDescriptionChange} value={activityDescription} placeholder="Description" />
-                </label>
+                <div className="input-container">
+                    <label>
+                        Activity Description:
+                        <input type="text" key={5} className="desc-input" id="activityDescription" name="activityDescription" onChange={handleActivityDescriptionChange} value={activityDescription} placeholder="Description" />
+                    </label>
+                </div>
 
-                <button type="submit">Submit</button>
+                <div className="input-container">
+                    <button type="submit">Submit</button>
+                </div>
 
             </form>
 

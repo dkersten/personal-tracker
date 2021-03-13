@@ -27,7 +27,6 @@ const TrackerContainer = () => {
 
     return (
         <div>
-            <button onClick={toggleModal}>Open Toggle</button>
             <Header>Tracker Container</Header>
             <ActivitiesWeek />
             <ActivitiesMonth 
