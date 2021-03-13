@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
-import DatePicker from 'react-datepicker'
+import 'carbon-components/css/carbon-components.min.css';
+  import { DatePicker, DatePickerInput } from 'carbon-components-react';
 
 import { ButtonStandard, defaultFont } from '../mixins'
 
@@ -109,6 +110,18 @@ const AddActivityForm = () => {
                 <div className="input-container">
                     <label>
                         Activity Date:
+                        <DatePicker dateFormat="m/d/Y" datePickerType="single">
+                            <DatePickerInput
+                                id="date-picker-single"
+                                placeholder="mm/dd/yyyy"
+                                type="text"
+                                key={4}
+                                selected={ activityDate }
+                                onChange={handleActivityDateChange}
+                                name="date"
+                            />
+                        </DatePicker>
+    
                         <DatePicker
                             key={4}
                             selected={ activityDate }
