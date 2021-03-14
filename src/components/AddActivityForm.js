@@ -81,6 +81,10 @@ import TableDatePicker from './DatePicker'
         .react-datepicker__day--keyboard-selected {
             background: #03A5F5;
         }
+
+        .react-datepicker__day:hover {
+            background: #252A2E;
+        }
     `
 
 const AddActivityForm = () => {
@@ -89,7 +93,22 @@ const AddActivityForm = () => {
     const [ activityDescription, setActivityDescription ] = useState("")
     const [ activityDate, setActivityDate] = useState(null)
 
-    const [ activityCategory, setActivityCategory ] = useState("misc")
+    const [ activityCategory, setActivityCategory ] = useState("")
+
+    // format the date iput from the form so it can be sent to the API
+    const formatDate = (date) => {
+        let d = date
+        let month = '' + (d.getMonth() + 1)
+        let day = '' + d.getDate()
+        let year = d.getFullYear();
+
+        if (month.length < 2) 
+            month = '0' + month;
+        if (day.length < 2) 
+            day = '0' + day;
+
+        return [year, month, day].join('-')
+    }
 
     const handleActivityNameChange = e => {
         setActivityName(e.target.value)
@@ -99,13 +118,8 @@ const AddActivityForm = () => {
         setActivityDescription(e.target.value)
     }
 
-    // const handleActivityDateChange = e => {
-    //     console.log(e.target.value)
-    //     setActivityDate([date])
-    // }
-
     const handleActivityDateChange = (date) => {
-        setActivityDate(date)
+        setActivityDate(formatDate(date))
     }
 
     const handleActivityCateogryChange = e => {
@@ -114,7 +128,38 @@ const AddActivityForm = () => {
 
     const handleSubmit = e => {
         e.preventDefault()
-        console.log(activityName, activityCategory,  activityDescription)
+        // console.log(activityName, activityCategory, activityDate, activityDescription)
+        sendActivityDataToAPI()
+        setActivityName("")
+        setActivityDate(null)
+        setActivityCategory("misc")
+        setActivityDescription("")
+    }
+
+    const sendActivityDataToAPI = () => {
+        // const dataToSend = {
+        //     category: activityCategory,
+        //     name: activityName,
+        //     date: activityDate,
+        //     description: activityDescription
+        // }
+        // console.log(dataToSend)
+
+        fetch("http://localhost:3001/activities", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                "Accept": "application/json"
+            },
+            body: JSON.stringify({
+                category: activityCategory,
+                name: activityName,
+                date: activityDate,
+                description: activityDescription
+            })
+        })
+            .then(resp => resp.json())
+            .then(json => console.log(json))
     }
 
     return (
