@@ -1,8 +1,11 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import styled from 'styled-components'
+import { connect } from 'react-redux'
 
-import {headerMd} from '../mixins'
-import activities from '../ActivitiesTestData.js'
+import { headerMd } from '../mixins'
+// import activities from '../ActivitiesTestData.js'
+
+import { fetchActivities } from '../actions/activityActions'
 
 import ActivityTrackerCard from '../components/ActivityTrackerCard'
 
@@ -21,14 +24,31 @@ import ActivityTrackerCard from '../components/ActivityTrackerCard'
         align-items: stretch;
     `
 
-const ActivitiesWeek = () => {
+const ActivitiesWeek = ({dispatch, loading, activities, hasErrors}) => {
+
+    useEffect(() => {
+        dispatch(fetchActivities())
+    }, [dispatch])
+
+    const renderContent = () => {
+        if (loading) return <p>Loading activities...</p>
+        if (hasErrors) return <p>Unable to display activities.</p>
+        return activities.map((activity) => <ActivityTrackerCard 
+                key={activity.id}
+                category={activity.category}
+                name={activity.name}
+                date={activity.date}
+                description={activity.description}
+            />)
+
+    }
 
     return (
         <div>
             <Header><i className="fal fa-check"></i> Activites This Week</Header>
             <CardContainer className="card-container">
-
-                {
+                {renderContent()}
+                {/* {
                     activities.map(activity => <ActivityTrackerCard 
                         key={activity.id}
                         category={activity.activityCategory}
@@ -36,10 +56,17 @@ const ActivitiesWeek = () => {
                         date={activity.activityDate}
                         description={activity.activityDescription}
                     />)
-                }
+                } */}
             </CardContainer>
         </div>
     )
 }
 
-export default ActivitiesWeek
+// Map Redux state to React component props
+const mapStateToProps = (state) => ({
+    loading: state.activities.loading,
+    activities: state.activities.activities,
+    hasErrors: state.activities.hasErrors
+})
+
+export default connect(mapStateToProps)(ActivitiesWeek)
