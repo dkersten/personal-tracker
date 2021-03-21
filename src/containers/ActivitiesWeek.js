@@ -32,22 +32,38 @@ const ActivitiesWeek = ({dispatch, loading, activities, hasErrors}) => {
     const renderContent = () => {
 
         // let formatttedActivities = [];
-        console.log(activities)
         
-        for (let i = 0; i < activities.length; i++) {
-            // let activityObject;
-            const d = new Date(activities[i].date)
-            let month = '' + (d.getMonth() + 1)
-            let day = '' + d.getDate()
-            let year = d.getFullYear();
+        // for (let i = 0; i < activities.length; i++) {
+        //     let activityObject = {
+        //         id: '',
+        //         name: '',
+        //         category: '',
+        //         date: '',
+        //         description: ''
+        //     };
+        //     const activityId = activities[i].id
+        //     const activityName = activities[i].name
+        //     const activityCategory = activities[i].category
+        //     const activityDescription = activities[i].description
 
-            if (month.length < 2) 
-                month = '0' + month;
-            if (day.length < 2) 
-                day = '0' + day;
+        //     const d = new Date(activities[i].date)
+        //     let month = '' + (d.getMonth() + 1)
+        //     let day = '' + d.getDate()
+        //     let year = d.getFullYear();
 
-            // console.log([month, day, year].join('-'))
-        }
+        //     if (month.length < 2) 
+        //         month = '0' + month;
+        //     if (day.length < 2) 
+        //         day = '0' + day;
+
+        //     const activityDate = [month, day, year].join('-')
+        //     activityObject["id"] = activityId
+        //     activityObject["name"] = activityName
+        //     activityObject["category"] = activityCategory
+        //     activityObject["description"] = activityDescription
+        //     activityObject["date"] = activityDate
+        //     formatttedActivities.push(activityObject)
+        // }
 
         if (loading) return <p>Loading activities...</p>
         if (hasErrors) return <p>Unable to display activities.</p>

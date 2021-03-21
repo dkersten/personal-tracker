@@ -123,6 +123,25 @@ const ActivityTrackerCard = (props) => {
         }
     }
 
+    const formatDate = () => {
+            const d = new Date(props.date)
+            let month = '' + (d.getMonth() + 1)
+            let day = '' + d.getDate()
+            let year = d.getFullYear();
+            year = year.toString()
+            year = year.split("")
+            year = year.splice(2,2)
+            year = year.join('')
+
+            if (month.length < 2) 
+                month = '0' + month;
+            if (day.length < 2) 
+                day = '0' + day;
+
+            const activityDate = [month, day, year].join('/')
+            return activityDate
+    }
+
     return (
         <Card>
             { renderActivityGradientIndicator() }
@@ -133,7 +152,7 @@ const ActivityTrackerCard = (props) => {
                 </span>
             </div>
             <span className="date">
-                {props.date}
+                {formatDate()}
             </span>
             <div className="description">
             {props.description}
