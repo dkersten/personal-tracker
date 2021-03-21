@@ -15,12 +15,12 @@ export const getActivitiesFailure = () => ({
     type: GET_ACTIVITIES_FAILURE
 })
 
-export function fetchActivities() {
+export function fetchActivitiesWeek() {
     return async (dispatch) => {
         dispatch(getActivities())
 
         try {
-            const response = await fetch('http://localhost:3001/activities')
+            const response = await fetch('http://localhost:3001/activities/week')
             const data = await response.json()
 
             dispatch(getActivitiesSuccess(data))

@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 
 import { headerMd } from '../mixins'
 
-import { fetchActivities } from '../actions/activityActions'
+import { fetchActivitiesWeek } from '../actions/activityActions'
 
 import ActivityTrackerCard from '../components/ActivityTrackerCard'
 
@@ -26,44 +26,10 @@ import ActivityTrackerCard from '../components/ActivityTrackerCard'
 const ActivitiesWeek = ({dispatch, loading, activities, hasErrors}) => {
 
     useEffect(() => {
-        dispatch(fetchActivities())
+        dispatch(fetchActivitiesWeek())
     }, [dispatch])
 
     const renderContent = () => {
-
-        // let formatttedActivities = [];
-        
-        // for (let i = 0; i < activities.length; i++) {
-        //     let activityObject = {
-        //         id: '',
-        //         name: '',
-        //         category: '',
-        //         date: '',
-        //         description: ''
-        //     };
-        //     const activityId = activities[i].id
-        //     const activityName = activities[i].name
-        //     const activityCategory = activities[i].category
-        //     const activityDescription = activities[i].description
-
-        //     const d = new Date(activities[i].date)
-        //     let month = '' + (d.getMonth() + 1)
-        //     let day = '' + d.getDate()
-        //     let year = d.getFullYear();
-
-        //     if (month.length < 2) 
-        //         month = '0' + month;
-        //     if (day.length < 2) 
-        //         day = '0' + day;
-
-        //     const activityDate = [month, day, year].join('-')
-        //     activityObject["id"] = activityId
-        //     activityObject["name"] = activityName
-        //     activityObject["category"] = activityCategory
-        //     activityObject["description"] = activityDescription
-        //     activityObject["date"] = activityDate
-        //     formatttedActivities.push(activityObject)
-        // }
 
         if (loading) return <p>Loading activities...</p>
         if (hasErrors) return <p>Unable to display activities.</p>
