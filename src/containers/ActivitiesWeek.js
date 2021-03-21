@@ -3,7 +3,6 @@ import styled from 'styled-components'
 import { connect } from 'react-redux'
 
 import { headerMd } from '../mixins'
-// import activities from '../ActivitiesTestData.js'
 
 import { fetchActivities } from '../actions/activityActions'
 
@@ -31,9 +30,28 @@ const ActivitiesWeek = ({dispatch, loading, activities, hasErrors}) => {
     }, [dispatch])
 
     const renderContent = () => {
+
+        // let formatttedActivities = [];
+        console.log(activities)
+        
+        for (let i = 0; i < activities.length; i++) {
+            // let activityObject;
+            const d = new Date(activities[i].date)
+            let month = '' + (d.getMonth() + 1)
+            let day = '' + d.getDate()
+            let year = d.getFullYear();
+
+            if (month.length < 2) 
+                month = '0' + month;
+            if (day.length < 2) 
+                day = '0' + day;
+
+            // console.log([month, day, year].join('-'))
+        }
+
         if (loading) return <p>Loading activities...</p>
         if (hasErrors) return <p>Unable to display activities.</p>
-        return activities.map((activity) => <ActivityTrackerCard 
+        return activities.map((activity) => <ActivityTrackerCard
                 key={activity.id}
                 category={activity.category}
                 name={activity.name}
@@ -48,15 +66,6 @@ const ActivitiesWeek = ({dispatch, loading, activities, hasErrors}) => {
             <Header><i className="fal fa-check"></i> Activites This Week</Header>
             <CardContainer className="card-container">
                 {renderContent()}
-                {/* {
-                    activities.map(activity => <ActivityTrackerCard 
-                        key={activity.id}
-                        category={activity.activityCategory}
-                        name={activity.activityName}
-                        date={activity.activityDate}
-                        description={activity.activityDescription}
-                    />)
-                } */}
             </CardContainer>
         </div>
     )

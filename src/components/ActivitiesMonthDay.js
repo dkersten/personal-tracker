@@ -40,7 +40,6 @@ import { defaultFont } from '../mixins'
     `
 
 const ActivitiesMonthDay = (props) => {
-    console.log(props.num)
 
     const activityIndicator = () => {
         if (props.activity) {
