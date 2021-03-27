@@ -1,10 +1,12 @@
 import React, { useEffect }  from 'react'
 import styled from 'styled-components'
+import { connect } from 'react-redux'
 
 import {headerMd, SevenColLayout} from '../mixins'
 
 import ActivitiesMonthDayNames from '../components/ActivitiesMonthDayNames'
 import ActivitiesMonthDay from '../components/ActivitiesMonthDay'
+import { fetchActivitiesMonth } from '../actions/activityMonthActions'
 
 // styling
     const MonthContainer = styled.div`
@@ -31,14 +33,16 @@ import ActivitiesMonthDay from '../components/ActivitiesMonthDay'
         ${ SevenColLayout }
     `
 
-const ActivitiesMonth = (props) => {
+const ActivitiesMonth = ({dispatch, loading, activities, hasErrors}, props) => {
 
     useEffect(() => {
         // call function to see what the current month is
         determineMonth()
         // call funtion to see what day of week the month started on
         determineFirstOfTheMonth()
-    })
+
+        dispatch(fetchActivitiesMonth())
+    }, [dispatch])
 
     // get current month and number of days in month
     const determineMonth = () => {
@@ -128,4 +132,10 @@ const ActivitiesMonth = (props) => {
     )
 }
 
-export default ActivitiesMonth
+const mapStateToProps = (state) => ({
+    loading: state.activities.loading,
+    activities: state.activities.activities,
+    hasErrors: state.activities.hasErrors
+})
+
+export default connect(mapStateToProps)(ActivitiesMonth)
