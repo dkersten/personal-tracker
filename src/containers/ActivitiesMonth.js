@@ -91,6 +91,7 @@ const ActivitiesMonth = ({dispatch, loading, activities, hasErrors}, props) => {
 
     // dynamically render the days in the month calendar
     const displayDays = () => {
+        // console.log(activities)
         const numDays = determineMonth()
         const firstDayOfMonth = determineFirstOfTheMonth()
         const daysArray = []
@@ -105,12 +106,27 @@ const ActivitiesMonth = ({dispatch, loading, activities, hasErrors}, props) => {
             />)
         }
 
+        // format date to something usable from activitiesMonth data in redux store and store it in an array. This will be used to check to see if an activity indicator should be added to a day (ActivitiesMonthDay component)
+        const recordOfActivityDays = []
+
+        if (typeof activities !== "undefined") {
+            for (let i = 0; i < activities.length; i++) {
+                const dateObj = new Date(activities[i].date)
+                const day = dateObj.getDate()
+
+                if (!recordOfActivityDays.includes(day)) {
+                    recordOfActivityDays.push(day)
+                }
+            }
+        }
+
         // insert days for this month into array using splice
         for (let i = 0; i < numDays; i++) {
             daysArray.splice(firstDayOfMonth + i, 1, <ActivitiesMonthDay
                 key={firstDayOfMonth + i}
                 num={i + 1}
-                activity={true}
+                // dynamically check to see if an activity has been logged for a specific day based on recordOfActivityDays
+                activity={recordOfActivityDays.includes(i + 1) ? true : false}
                 toggleModal={props.toggleModal}
             /> )
         }
@@ -134,7 +150,7 @@ const ActivitiesMonth = ({dispatch, loading, activities, hasErrors}, props) => {
 
 const mapStateToProps = (state) => ({
     loading: state.activities.loading,
-    activities: state.activities.activities,
+    activities: state.activitiesMonth.activitiesMonth,
     hasErrors: state.activities.hasErrors
 })
 

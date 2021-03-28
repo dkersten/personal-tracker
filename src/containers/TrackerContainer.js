@@ -27,7 +27,7 @@ const TrackerContainer = () => {
 
     return (
         <div>
-            <Header>Tracker Container</Header>
+            <Header>Tracker Your Activities</Header>
             <ActivitiesWeek />
             <ActivitiesMonth 
                 toggleModal={toggleModal}
