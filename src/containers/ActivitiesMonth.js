@@ -34,7 +34,7 @@ import { fetchActivitiesMonth } from '../actions/activityMonthActions'
     `
 
 const ActivitiesMonth = ({dispatch, loading, activities, hasErrors}, props) => {
-
+    console.log(props)
     useEffect(() => {
         // call function to see what the current month is
         determineMonth()
@@ -148,7 +148,7 @@ const ActivitiesMonth = ({dispatch, loading, activities, hasErrors}, props) => {
     )
 }
 
-const mapStateToProps = (state) => ({
+const mapStateToProps = (state, ownProps) => ({
     loading: state.activities.loading,
     activities: state.activitiesMonth.activitiesMonth,
     hasErrors: state.activities.hasErrors

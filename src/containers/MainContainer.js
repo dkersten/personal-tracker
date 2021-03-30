@@ -15,6 +15,10 @@ import Welcome from '../components/Welcome'
         flex-grow: 1;
         overflow-y: scroll;
         padding: 2rem 3rem;
+
+        @media only screen and (max-width: 1199px) {
+            flex-basis: 100%;
+        }
     `
 
 const MainContainer = () => {

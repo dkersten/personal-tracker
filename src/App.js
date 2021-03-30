@@ -7,6 +7,10 @@ import MainContainer from './containers/MainContainer.js';
 // styling
   const AppContainer = styled.div`
     display: flex;
+
+    @media only screen and (max-width: 1199px) {
+      flex-direction: column;
+    }
   `
 
 function App() {
