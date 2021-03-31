@@ -2,7 +2,7 @@ import React, { useEffect }  from 'react'
 import styled from 'styled-components'
 import { connect } from 'react-redux'
 
-import {headerMd, SevenColLayout} from '../mixins'
+import {headerMd, SevenColLayout, sectionLayoutMedium} from '../mixins'
 
 import ActivitiesMonthDayNames from '../components/ActivitiesMonthDayNames'
 import ActivitiesMonthDay from '../components/ActivitiesMonthDay'
@@ -27,6 +27,8 @@ import { fetchActivitiesMonth } from '../actions/activityMonthActions'
         max-width: calc(((300px + 1.5rem) * 3) - 1.5rem);
         padding: 2rem;
         border-radius: 12px;
+
+        ${ sectionLayoutMedium }
     `
 
     const CalendarDayContainer = styled.div`

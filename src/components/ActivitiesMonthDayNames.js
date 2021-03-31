@@ -17,12 +17,30 @@ import { defaultFont } from '../mixins'
             margin-left: 1rem;
             margin-right: 1rem;
         }
+
+        @media only screen and (max-width: 640px) {
+            display: none;
+        }
+    `
+
+    const DayNamesMobile = styled.div`
+        ${ defaultFont }
+        display: flex;
+        justify-content: space-around;
+        text-align: center;
+        font-weight: 600;
+        font-size: 1.25rem;
+
+        @media only screen and (min-width: 640px) {
+            display: none;
+        }
     `
 
 const ActivitiesMonthDayNames = () => {
 
     return (
-        <DayNames>
+        <div>
+            <DayNames>
             <span>Sun</span>
             <span>Mon</span>
             <span>Tue</span>
@@ -31,6 +49,17 @@ const ActivitiesMonthDayNames = () => {
             <span>Fri</span>
             <span>Sat</span>
         </DayNames>
+        <DayNamesMobile>
+            <span>S</span>
+            <span>M</span>
+            <span>T</span>
+            <span>W</span>
+            <span>T</span>
+            <span>F</span>
+            <span>S</span>
+        </DayNamesMobile>
+        </div>
+        
     )
 }
 

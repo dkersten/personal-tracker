@@ -21,7 +21,7 @@ import Welcome from '../components/Welcome'
         }
 
         @media only screen and (max-width: 450px) {
-            padding: 2rem 1rem;
+            padding: 2rem 1.25rem;
         }
     `
 
