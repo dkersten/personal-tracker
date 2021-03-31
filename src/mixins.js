@@ -1,3 +1,4 @@
+// font styling
 export const headerLG = () => {
     return `
         font-size: 2rem;
@@ -35,6 +36,7 @@ export const defaultFont = () => {
     `
 }
 
+// Card styling
 export const CardBaseStyling = () => {
     return `
         background: #2F3438;
@@ -52,6 +54,25 @@ export const CardBaseStyling = () => {
     `
 }
 
+// button styling
+export const ButtonStandard = () => {
+    return `
+        background: #FD3E58;
+        border: none;
+        color: #f7f7f7;
+        padding: 10px 24px;
+        border-radius: 15px;
+        font-size: 1.05rem;
+
+        &:hover {
+            background: #fd1c3b;
+            cursor: pointer;
+        }
+    `
+}
+
+// Layouts
+
 export const SevenColLayout = () => {
     return `
         display: flex;
@@ -66,18 +87,26 @@ export const SevenColLayout = () => {
     `
 }
 
-export const ButtonStandard = () => {
+export const sectionLayoutMedium = () => {
     return `
-        background: #FD3E58;
-        border: none;
-        color: #f7f7f7;
-        padding: 10px 24px;
-        border-radius: 15px;
-        font-size: 1.05rem;
-
-        &:hover {
-            background: #fd1c3b;
-            cursor: pointer;
+        @media only screen and (max-width: 1199px) {
+            max-width: 100%;
         }
+    `
+}
+
+export const twoColLayoutMediumScreens = () => {
+    return `
+        margin-left: .5rem;
+        margin-right: .5rem;
+        flex-basis: calc((100% / 2) - 1rem);
+    `
+}
+
+export const oneColLayoutSmallScreens = () => {
+    return `
+        margin-left: 0;
+        margin-right: 0;
+        flex-basis: 100%;
     `
 }

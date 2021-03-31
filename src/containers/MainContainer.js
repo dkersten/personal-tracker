@@ -19,6 +19,10 @@ import Welcome from '../components/Welcome'
         @media only screen and (max-width: 1199px) {
             flex-basis: 100%;
         }
+
+        @media only screen and (max-width: 450px) {
+            padding: 2rem 1rem;
+        }
     `
 
 const MainContainer = () => {

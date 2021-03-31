@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import { headerMd } from '../mixins'
+import { headerMd, sectionLayoutMedium } from '../mixins'
 
 import ActivitiesYearMonth from '../components/ActivitiesYearMonth'
 
@@ -24,6 +24,8 @@ import ActivitiesYearMonth from '../components/ActivitiesYearMonth'
         max-width: calc(((300px + 1.5rem) * 3) - 1.5rem);
         padding: 2rem;
         border-radius: 12px;
+
+        ${ sectionLayoutMedium }
     `
 
 const ActivitiesYear = (props) => {

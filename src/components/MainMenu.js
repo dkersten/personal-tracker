@@ -88,7 +88,7 @@ const MainMenu = () => {
             </NavItem>
 
             <NavItem>
-                <StyledLink to="stats"><IconContainer><i class="fal fa-book"></i></IconContainer> <span className="link-text">Planning</span></StyledLink>
+                <StyledLink to="stats"><IconContainer><i className="fal fa-book"></i></IconContainer> <span className="link-text">Planning</span></StyledLink>
             </NavItem>
 
             <NavItem>

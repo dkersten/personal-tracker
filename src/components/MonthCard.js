@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import { CardBaseStyling, headerSm } from '../mixins'
+import { CardBaseStyling, headerSm, twoColLayoutMediumScreens, oneColLayoutSmallScreens } from '../mixins'
 
 // styling
     const Card = styled.div`
@@ -13,6 +13,18 @@ import { CardBaseStyling, headerSm } from '../mixins'
         display: flex;
         flex-direction: column;
         position: relative;
+
+        @media only screen and (min-width: 1200px) and (max-width: 1299px) {
+            flex-basis: calc((100% / 2) - 1rem);
+        }
+
+        @media only screen and (max-width: 900px) {
+            ${ twoColLayoutMediumScreens }
+        }
+
+        @media only screen and (max-width: 675px) {
+            ${ oneColLayoutSmallScreens }
+        }
     `
 
     const MonthName = styled.h4`
