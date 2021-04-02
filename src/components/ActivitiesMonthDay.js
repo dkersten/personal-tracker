@@ -20,6 +20,16 @@ import { defaultFont } from '../mixins'
         &.has-activity {
             cursor: pointer;
         }
+
+        @media only screen and (max-width: 675px) {
+            background: rgba(0,0,0,0);
+        }
+
+        @media only screen and (max-width: 499px) {
+            margin-left: .5rem;
+            margin-right: .5rem;
+            flex-basis: calc((100% / 7) - 1rem);
+        }
     `
 
     const ActivityDot = styled.span`
@@ -37,6 +47,15 @@ import { defaultFont } from '../mixins'
         font-size: 1.75rem;
         margin-top: .75rem;
         margin-bottom: .5rem;
+
+        @media only screen and (max-width: 675px) {
+            font-weight: 400;
+            font-size: 1.25rem;
+        }
+
+        @media only screen and (max-width: 525px) {
+            font-size: 1rem;
+        }
     `
 
 const ActivitiesMonthDay = (props) => {
