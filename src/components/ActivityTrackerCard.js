@@ -7,9 +7,23 @@ import { CardBaseStyling } from '../mixins'
 // styling
     const Card = styled.div`
     ${CardBaseStyling}
-    max-width: 300px;
     padding-top: calc(1rem + 5px);
     flex-basis: calc(33.333% - 1.5rem);
+
+    @media only screen and (min-width: 1200px) and (max-width: 1250px) {
+        flex-basis: calc(50% - 1.5rem);
+    }
+
+    @media only screen and (max-width: 950px) {
+        flex-basis: calc(50% - 1.5rem);
+    }
+
+    @media only screen and (max-width: 650px) {
+        flex-basis: 100%;
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 400px;
+    }
 
     .top {
         display: flex;

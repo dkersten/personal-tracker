@@ -21,6 +21,10 @@ import ActivityTrackerCard from '../components/ActivityTrackerCard'
         display: flex;
         flex-wrap: wrap;
         align-items: stretch;
+
+        @media only screen and (min-width: 1250px) {
+            max-width: calc((300px + 1.5rem) * 3);
+        }
     `
 
 const ActivitiesWeek = ({dispatch, loading, activities, hasErrors}) => {
