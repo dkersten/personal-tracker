@@ -23,11 +23,20 @@ import { defaultFont } from '../mixins'
 
         @media only screen and (max-width: 675px) {
             background: rgba(0,0,0,0);
+            min-height: 65px;
+        }
+
+        @media only screen and (max-width: 525px) {
+            margin-top: .75rem;
         }
 
         @media only screen and (max-width: 499px) {
             margin-left: .5rem;
             margin-right: .5rem;
+            flex-basis: calc((100% / 7) - 1rem);
+        }
+
+        @media only screen and (max-width: 345px) {
             flex-basis: calc((100% / 7) - 1rem);
         }
     `

@@ -27,8 +27,12 @@ import { fetchActivitiesMonth } from '../actions/activityMonthActions'
         max-width: calc(((300px + 1.5rem) * 3) - 1.5rem);
         padding: 2rem;
         border-radius: 12px;
+        /* background: red; */
 
         ${ sectionLayoutMedium }
+        @media only screen and (max-width: 345px) {
+            padding: 1rem;
+        }
     `
 
     const CalendarDayContainer = styled.div`
@@ -36,7 +40,7 @@ import { fetchActivitiesMonth } from '../actions/activityMonthActions'
     `
 
 const ActivitiesMonth = ({dispatch, loading, activities, hasErrors}, props) => {
-    console.log(props)
+    // console.log(props)
     useEffect(() => {
         // call function to see what the current month is
         determineMonth()
