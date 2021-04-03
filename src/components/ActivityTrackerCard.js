@@ -137,6 +137,7 @@ const ActivityTrackerCard = (props) => {
         }
     }
 
+    // function to format date to mm/dd/yy
     const formatDate = () => {
             const d = new Date(props.date)
             let month = '' + (d.getMonth() + 1)

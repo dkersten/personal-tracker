@@ -24,6 +24,14 @@ import TableDatePicker from './DatePicker'
                 margin: 1rem .75rem;
                 flex-basis: calc(50% - 1.5rem);
             }
+
+            @media only screen and (max-width: 700px) {
+                .input-container {
+                margin-left: auto;
+                margin-right: auto;
+                flex-basis: 100%;
+            }
+            }
             
             button:not(.react-datepicker__navigation) {
                 margin-left: right;
@@ -110,6 +118,7 @@ const AddActivityForm = () => {
         return [year, month, day].join('-')
     }
 
+    // 
     const handleActivityNameChange = e => {
         setActivityName(e.target.value)
     }

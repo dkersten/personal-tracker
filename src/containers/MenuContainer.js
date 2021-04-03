@@ -15,9 +15,10 @@ import MainMenu from '../components/MainMenu'
         align-items: flex-start;
 
         @media only screen and (max-width: 1199px) {
-            flex-basis: 100%;
+            /* flex-basis: 100%; */
             max-width: 100%;
             border-bottom: 2px solid #1c1c1c;
+            max-height: 65px;
         }
     `
 
