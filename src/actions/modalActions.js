@@ -1,12 +1,16 @@
-export const OPEN_MODAL = 'OPEN_MODAL'
-export const CLOSE_MODAL = 'CLOSE_MODAL'
+export const SHOW_MODAL = 'SHOW_MODAL'
+export const MODAL_TYPE = 'MODAL_TYPE'
+export const MODAL_PROPS = {}
+export const HIDE_MODAL = 'HIDE_MODAL'
 
 export const openModal = () => ({
-    type: OPEN_MODAL
+    type: SHOW_MODAL,
+    modalType: MODAL_TYPE,
+    modalProps: MODAL_PROPS
 })
 
 export const closeModal = () => ({
-    type: CLOSE_MODAL
+    type: HIDE_MODAL
 })
 
 export function toggleModal() {

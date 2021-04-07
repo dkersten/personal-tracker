@@ -47,7 +47,7 @@ import { CardBaseStyling } from '../mixins'
     `
 
 const ReusableModal = (props) => {
-
+    console.log(props)
     // determine what content needs to be displayed based on the type of card the user clicked on
     const contentType = () => {
         if (props.modalContentType === "general") {

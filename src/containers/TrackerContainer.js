@@ -1,6 +1,7 @@
 // imports
 import React, { useState } from 'react'
 import styled from 'styled-components'
+import { connect } from 'react-redux'
 
 import { headerLG } from '../mixins'
 
@@ -45,4 +46,8 @@ const TrackerContainer = () => {
     )
 }
 
-export default TrackerContainer
+const mapDispatchToProps = (dispatch) => ({
+    
+})
+
+export default connect(null, mapDispatchToProps)(TrackerContainer)
