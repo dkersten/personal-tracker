@@ -1,5 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
+import { useDispatch } from 'react-redux'
+import { openModal } from '../actions/modalActions'
 
 import { defaultFont } from '../mixins'
 
@@ -69,6 +71,8 @@ import { defaultFont } from '../mixins'
 
 const ActivitiesMonthDay = (props) => {
 
+    const dispatch = useDispatch()
+
     const activityIndicator = () => {
         if (props.activity) {
             return(
@@ -90,16 +94,14 @@ const ActivitiesMonthDay = (props) => {
         return elementClassNames.join(' ')
     }
 
-    const openModal = () => {
-        if (props.activity) {
-            props.toggleModal("month overview")
-        }
+    const openModalEventHandler = () => {
+        dispatch(openModal('blah', 'aksjhf'))
     }
 
     return (
         <DayCard
             className={determineElementClassNames()}
-            onClick={openModal}
+            onClick={openModalEventHandler}
         >
             <DayNum className="day-num">{props.num}</DayNum>
             <span className="activity-indicator">

@@ -1,5 +1,6 @@
 import React from 'react'
 import Modal from 'react-bootstrap/Modal'
+import { useSelector } from 'react-redux'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import styled from 'styled-components'
 
@@ -47,7 +48,14 @@ import { CardBaseStyling } from '../mixins'
     `
 
 const ReusableModal = (props) => {
-    console.log(props)
+
+    const state = useSelector(s => ({
+        ...s.modal
+    }))
+
+    console.log(state)
+
+    // console.log(props)
     // determine what content needs to be displayed based on the type of card the user clicked on
     const contentType = () => {
         if (props.modalContentType === "general") {

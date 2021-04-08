@@ -1,4 +1,4 @@
-// import * as actions from '../actions/modalActions'
+import * as actions from '../actions/modalActions'
 
 const initialState = {
     modalType: null,
@@ -7,13 +7,13 @@ const initialState = {
 
 export default function modalReducer(state = initialState, action) {
     switch (action.type) {
-        case action.SHOW_MODAL:
+        case actions.SHOW_MODAL:
             return {
                 ...state,
                 modalType: action.modalType,
                 modalProps: action.modalProps
             }
-        case action.HIDE_MODAL:
+        case actions.HIDE_MODAL:
             return {
                 initialState
             }
