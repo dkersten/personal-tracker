@@ -1,7 +1,7 @@
 // imports
 import React, { useState } from 'react'
 import styled from 'styled-components'
-import { connect } from 'react-redux'
+import { connect, useSelector } from 'react-redux'
 
 import { headerLG } from '../mixins'
 
@@ -18,12 +18,21 @@ import ReusableModal from '../components/Modal'
 
 const TrackerContainer = () => {
 
+    const state = useSelector(s => ({
+        ...s.modal
+    }))
+
     const [isModalOpen, setIsModalOpen] = useState(false)
-    const [modalContentType, setModalContentType] = useState("general")
+    // const [modalContentType, setModalContentType] = useState("general")
 
     const toggleModal = (type) => {
-        setIsModalOpen(!isModalOpen)
-        setModalContentType(type)
+        // setIsModalOpen(!isModalOpen)
+        // setModalContentType(type)
+        if (state.modal !== null) {
+            setIsModalOpen(true)
+        } else {
+            setIsModalOpen(false)
+        }
     }
 
     return (
@@ -40,14 +49,10 @@ const TrackerContainer = () => {
             <ReusableModal
                 show={isModalOpen}
                 toggleModal={toggleModal}
-                modalContentType={modalContentType}
+                // modalContentType={modalContentType}
             />
         </div>
     )
 }
 
-const mapDispatchToProps = (dispatch) => ({
-    
-})
-
-export default connect(null, mapDispatchToProps)(TrackerContainer)
+export default connect(state => state.modal)(TrackerContainer)

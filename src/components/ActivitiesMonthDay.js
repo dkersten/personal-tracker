@@ -95,7 +95,7 @@ const ActivitiesMonthDay = (props) => {
     }
 
     const openModalEventHandler = () => {
-        dispatch(openModal('blah', 'aksjhf'))
+        dispatch(openModal('monthView', 'This is the month overview'))
     }
 
     return (

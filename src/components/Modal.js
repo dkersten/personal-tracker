@@ -55,15 +55,12 @@ const ReusableModal = (props) => {
 
     console.log(state)
 
-    // console.log(props)
     // determine what content needs to be displayed based on the type of card the user clicked on
     const contentType = () => {
-        if (props.modalContentType === "general") {
-            return 'General content'
-        } else if (props.modalContentType === "month overview") {
-            return 'Month Overview'
-        } else if (props.modalContentType === 'year overview') {
-            return 'Year Overview'
+        if (state.modalType === "monthView") {
+            return state.modalProps
+        } else if (state.modalType === 'yearView') {
+            return state.modalProps
         }
     }
 

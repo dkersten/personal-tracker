@@ -1,5 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
+import { useDispatch } from 'react-redux'
+import { openModal } from '../actions/modalActions'
 
 import { CardBaseStyling, headerSm, twoColLayoutMediumScreens, oneColLayoutSmallScreens } from '../mixins'
 
@@ -73,10 +75,10 @@ import { CardBaseStyling, headerSm, twoColLayoutMediumScreens, oneColLayoutSmall
 
 const MonthCard = (props) => {
 
-    // console.log(props)
+    const dispatch = useDispatch()
 
-    const openModal = () => {
-        props.toggleModal('year overview')
+    const openModalEventHandler = () => {
+        dispatch(openModal('yearView', 'This is the year overview'))
     }
 
     return (
@@ -92,7 +94,7 @@ const MonthCard = (props) => {
 
             </TaskContainer>
             <div className="see-more-container">
-                <ShowAllBtn onClick={openModal}>See All Tasks</ShowAllBtn>
+                <ShowAllBtn onClick={openModalEventHandler}>See All Tasks</ShowAllBtn>
             </div>
         </Card>
     )
