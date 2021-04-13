@@ -1,10 +1,11 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import Modal from 'react-bootstrap/Modal'
-import { useSelector } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import styled from 'styled-components'
 
 import { CardBaseStyling } from '../mixins'
+// import { closeModal } from '../actions/modalActions'
 
 // styling
     const GeneralModal = styled(Modal)`
@@ -53,7 +54,18 @@ const ReusableModal = (props) => {
         ...s.modal
     }))
 
-    console.log(state)
+    const [modalIsOpen, setModalIsOpen] = useState(false)
+
+    useEffect(() => {
+        console.log(state.modalType)
+        if (state.modalType !== null) {
+            setModalIsOpen(true)
+        } else {
+            setModalIsOpen(false)
+        }
+    }, [state.modalType])
+
+    // const dispatch = useDispatch()
 
     // determine what content needs to be displayed based on the type of card the user clicked on
     const contentType = () => {
@@ -64,13 +76,14 @@ const ReusableModal = (props) => {
         }
     }
 
-    const closeModal = () => {
-        props.toggleModal()
+    const closeModalEventHandler = () => {
+        setModalIsOpen(false)
+        // dispatch(closeModal())
     }
 
     return(
         <GeneralModal
-            show={props.show}
+            show={modalIsOpen}
             aria-labelledby="contained-modal-title-vcenter"
             centered
         >
@@ -81,7 +94,7 @@ const ReusableModal = (props) => {
                 {contentType()}
             </Modal.Body>
             <Modal.Footer>
-                <button onClick={closeModal}>Close</button>
+                <button onClick={closeModalEventHandler}>Close</button>
             </Modal.Footer>
         </GeneralModal>
     )
