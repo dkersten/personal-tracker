@@ -14,9 +14,7 @@ export default function modalReducer(state = initialState, action) {
                 modalProps: action.modalProps
             }
         case actions.HIDE_MODAL:
-            return {
-                initialState
-            }
+            return initialState
         default:
             return state
     }

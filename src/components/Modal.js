@@ -5,7 +5,7 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import styled from 'styled-components'
 
 import { CardBaseStyling } from '../mixins'
-// import { closeModal } from '../actions/modalActions'
+import { closeModal } from '../actions/modalActions'
 
 // styling
     const GeneralModal = styled(Modal)`
@@ -60,12 +60,12 @@ const ReusableModal = (props) => {
         console.log(state.modalType)
         if (state.modalType !== null) {
             setModalIsOpen(true)
-        } else {
+        } else if (state.modalType === null) {
             setModalIsOpen(false)
         }
     }, [state.modalType])
 
-    // const dispatch = useDispatch()
+    const dispatch = useDispatch()
 
     // determine what content needs to be displayed based on the type of card the user clicked on
     const contentType = () => {
@@ -77,8 +77,8 @@ const ReusableModal = (props) => {
     }
 
     const closeModalEventHandler = () => {
-        setModalIsOpen(false)
-        // dispatch(closeModal())
+        // setModalIsOpen(false)
+        dispatch(closeModal())
     }
 
     return(
