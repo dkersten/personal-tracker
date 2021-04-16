@@ -95,7 +95,21 @@ const ActivitiesMonthDay = (props) => {
     }
 
     const openModalEventHandler = () => {
-        dispatch(openModal('monthView', 'This is the month overview'))
+        dispatch(openModal(
+            'monthView',
+            getDayAndMonth()
+        ))
+    }
+
+    const getDayAndMonth = () => {
+        const year = new Date().getFullYear()
+        let month = new Date().getMonth()
+        month = month + 1
+        const day = parseInt(props.num)
+
+        const date = [year, month, day]
+        console.log(year, month, day)
+        return date
     }
 
     return (

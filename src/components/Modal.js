@@ -57,7 +57,6 @@ const ReusableModal = (props) => {
     const [modalIsOpen, setModalIsOpen] = useState(false)
 
     useEffect(() => {
-        console.log(state.modalType)
         if (state.modalType !== null) {
             setModalIsOpen(true)
         } else if (state.modalType === null) {
@@ -70,6 +69,7 @@ const ReusableModal = (props) => {
     // determine what content needs to be displayed based on the type of card the user clicked on
     const contentType = () => {
         if (state.modalType === "monthView") {
+            renderMonthView()
             return state.modalProps
         } else if (state.modalType === 'yearView') {
             return state.modalProps
@@ -77,8 +77,18 @@ const ReusableModal = (props) => {
     }
 
     const closeModalEventHandler = () => {
-        // setModalIsOpen(false)
         dispatch(closeModal())
+    }
+
+    const renderMonthView = () => {
+        // const year = state.modalProps[0]
+        // const month = state.modalProps[1]
+        // const day = state.modalProps[2]
+
+        // make call to API
+
+        // map over returned results and render to modal
+        
     }
 
     return(
