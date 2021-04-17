@@ -97,18 +97,31 @@ const ActivitiesMonthDay = (props) => {
     const openModalEventHandler = () => {
         dispatch(openModal(
             'monthView',
-            getDayAndMonth()
+            getActivityDate()
         ))
     }
 
-    const getDayAndMonth = () => {
+    const getActivityDate = () => {
         const year = new Date().getFullYear()
         let month = new Date().getMonth()
         month = month + 1
         const day = parseInt(props.num)
 
-        const date = [year, month, day]
-        console.log(year, month, day)
+        // format date to send in API request
+        const yearStr = year.toString()
+        let monthStr = month.toString()
+        let dayStr = day.toString()
+
+        // add starting 0 if month/day is only 1 digit long
+        if (monthStr.length === 1) {
+            monthStr = '0' + monthStr
+        }
+        if (dayStr.length === 1) {
+            dayStr = '0' + dayStr
+        }
+
+        const date = (yearStr + '-' + monthStr + '-' + dayStr )
+        // console.log(date)
         return date
     }
 

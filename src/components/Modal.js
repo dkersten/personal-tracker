@@ -6,6 +6,7 @@ import styled from 'styled-components'
 
 import { CardBaseStyling } from '../mixins'
 import { closeModal } from '../actions/modalActions'
+import { modalState } from '../stateSelectors'
 
 // styling
     const GeneralModal = styled(Modal)`
@@ -50,9 +51,7 @@ import { closeModal } from '../actions/modalActions'
 
 const ReusableModal = (props) => {
 
-    const state = useSelector(s => ({
-        ...s.modal
-    }))
+    const state = useSelector(modalState)
 
     const [modalIsOpen, setModalIsOpen] = useState(false)
 
@@ -81,11 +80,13 @@ const ReusableModal = (props) => {
     }
 
     const renderMonthView = () => {
-        // const year = state.modalProps[0]
-        // const month = state.modalProps[1]
-        // const day = state.modalProps[2]
+        console.log(state.modalProps)
 
         // make call to API
+        fetch(`http://localhost:3001/activities/date/${state.modalProps}`)
+            .then(resp => resp.json())
+            .then(json => console.log(json))
+
 
         // map over returned results and render to modal
         
