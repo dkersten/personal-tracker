@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import styled from 'styled-components'
 
-import { CardBaseStyling } from '../mixins'
+import { CardBaseStyling, defaultFont } from '../mixins'
 import { closeModal } from '../actions/modalActions'
 import { modalState } from '../stateSelectors'
 
@@ -22,11 +22,12 @@ import { MonthModalActivity } from '../components/MonthModalActivity'
             border-bottom: 2px solid #464e54;
             padding-top: .25rem;
             
-            h3 {
+            h3, h3 span {
                 font-size: 1.5rem;
                 width: 100%;
                 text-align: center;
-                color: #17A4F6;
+                ${defaultFont}
+                color: #FD3E58;
             }
         }
 
@@ -51,7 +52,7 @@ import { MonthModalActivity } from '../components/MonthModalActivity'
         }
     `
 
-const ReusableModal = (props) => {
+const ReusableModal = () => {
 
     const state = useSelector(modalState)
 
@@ -75,19 +76,16 @@ const ReusableModal = (props) => {
 
     const dispatch = useDispatch()
 
-    // determine what content needs to be displayed based on the type of card the user clicked on
-    // const contentType = () => {
-    //     if (state.modalType === "monthView") {
-    //         fetch(`http://localhost:3001/activities/date/${state.modalProps}`)
-    //             .then(resp => resp.json())
-    //             // .then(json => console.log(json))
-    //             .then(json => setActivities(json))
-            
-    //         // return state.modalProps
-    //     } else if (state.modalType === 'yearView') {
-    //         return state.modalProps
-    //     }
-    // }
+    const renderHeader = () => {
+        if (state.modalType === 'monthView') {
+
+            return (<span>Activities for: {state.modalProps}</span>)
+        } else if (state.modalType === 'yearView') {
+            return ('Year View')
+        } else {
+            return null
+        }
+    }
 
     const renderMonthView = () => {
         const activitiesArr = []
@@ -120,7 +118,7 @@ const ReusableModal = (props) => {
             centered
         >
             <Modal.Header>
-                <h3>Content Header</h3>
+                <h3>{renderHeader()}</h3>
             </Modal.Header>
             <Modal.Body>
                 { state.modalType === "monthView" ? renderMonthView() : "no activities"}
