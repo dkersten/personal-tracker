@@ -8,6 +8,8 @@ import { CardBaseStyling } from '../mixins'
 import { closeModal } from '../actions/modalActions'
 import { modalState } from '../stateSelectors'
 
+import { MonthModalActivity } from '../components/MonthModalActivity'
+
 // styling
     const GeneralModal = styled(Modal)`
         
@@ -54,10 +56,18 @@ const ReusableModal = (props) => {
     const state = useSelector(modalState)
 
     const [modalIsOpen, setModalIsOpen] = useState(false)
+    const [dayActivities, setDayActivities] = useState(null)
 
     useEffect(() => {
         if (state.modalType !== null) {
             setModalIsOpen(true)
+
+            if (state.modalType === 'monthView') {
+                fetch(`http://localhost:3001/activities/date/${state.modalProps}`)
+                    .then(resp => resp.json())
+                    .then(activities => setDayActivities(activities))
+            }
+
         } else if (state.modalType === null) {
             setModalIsOpen(false)
         }
@@ -66,30 +76,41 @@ const ReusableModal = (props) => {
     const dispatch = useDispatch()
 
     // determine what content needs to be displayed based on the type of card the user clicked on
-    const contentType = () => {
-        if (state.modalType === "monthView") {
-            renderMonthView()
-            return state.modalProps
-        } else if (state.modalType === 'yearView') {
-            return state.modalProps
+    // const contentType = () => {
+    //     if (state.modalType === "monthView") {
+    //         fetch(`http://localhost:3001/activities/date/${state.modalProps}`)
+    //             .then(resp => resp.json())
+    //             // .then(json => console.log(json))
+    //             .then(json => setActivities(json))
+            
+    //         // return state.modalProps
+    //     } else if (state.modalType === 'yearView') {
+    //         return state.modalProps
+    //     }
+    // }
+
+    const renderMonthView = () => {
+        const activitiesArr = []
+
+        if (dayActivities !== null ) {
+            for (let i = 0; i < dayActivities.length; i++) {
+                activitiesArr.push(<MonthModalActivity 
+                        key={i}
+                        category={dayActivities[i].category}
+                        name={dayActivities[i].name}
+                        description={dayActivities[i].description}
+                    /> )
+            }
+
+            return activitiesArr
+        } else {
+            return "please wait"
         }
+        
     }
 
     const closeModalEventHandler = () => {
         dispatch(closeModal())
-    }
-
-    const renderMonthView = () => {
-        console.log(state.modalProps)
-
-        // make call to API
-        fetch(`http://localhost:3001/activities/date/${state.modalProps}`)
-            .then(resp => resp.json())
-            .then(json => console.log(json))
-
-
-        // map over returned results and render to modal
-        
     }
 
     return(
@@ -102,7 +123,8 @@ const ReusableModal = (props) => {
                 <h3>Content Header</h3>
             </Modal.Header>
             <Modal.Body>
-                {contentType()}
+                { state.modalType === "monthView" ? renderMonthView() : "no activities"}
+                { state.modalType === "yearView" ? 'year view' : null}
             </Modal.Body>
             <Modal.Footer>
                 <button onClick={closeModalEventHandler}>Close</button>
