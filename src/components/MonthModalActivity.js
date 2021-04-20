@@ -3,18 +3,17 @@ import React from 'react'
 import styled from 'styled-components'
 
 import { defaultFont } from '../mixins'
+import { renderActivityIcons } from '../renderActivityIcons'
 
 const ActivityModalCard = styled.div`
     width: 100%;
-    margin-bottom: 1rem;
-    padding: .5rem 1rem;
-    border-radius: 5px;
-    background: #262B2E;
+    margin-bottom: .75rem;
 
     h4.activity-title {
         ${defaultFont}
         font-size: 1.3rem;
         color: #17A3F6;
+        margin-bottom: .1rem;
     }
     
     p {
@@ -24,10 +23,16 @@ const ActivityModalCard = styled.div`
 `
 
 export const MonthModalActivity = (props) => {
+
     return (
         <ActivityModalCard>
-            <h4 className="activity-title">{props.category}: {props.name}</h4>
-            <p>- {props.description}</p>
+            <div className="left">
+                {renderActivityIcons(props.category)}
+            </div>
+            <div className="right">
+                <h4 className="activity-title">{props.category}: {props.name}</h4>
+                <p>- {props.description}</p>
+            </div>
         </ActivityModalCard>
     )
 }

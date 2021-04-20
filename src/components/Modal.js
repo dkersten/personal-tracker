@@ -19,8 +19,9 @@ import { MonthModalActivity } from '../components/MonthModalActivity'
         }
 
         .modal-header {
-            border-bottom: 2px solid #464e54;
+            border-bottom: none;
             padding-top: .25rem;
+            padding-bottom: 0;
             
             h3, h3 span {
                 font-size: 1.5rem;
@@ -32,14 +33,16 @@ import { MonthModalActivity } from '../components/MonthModalActivity'
         }
 
         .modal-footer {
-            border-top: 2px solid #464e54;
+            border-top: none;
             padding-bottom: 0;
+            padding-top: 0;
 
             button {
                 border: none;
-                background: rgba(0,0,0,0);
+                background: #FD3E58;
                 font-size: 1.2rem;
-                padding: 0;
+                padding: .25rem 1rem;
+                border-radius: 5px;
 
                 &:hover {
                     cursor: pointer;

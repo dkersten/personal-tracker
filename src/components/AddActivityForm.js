@@ -137,7 +137,7 @@ const AddActivityForm = () => {
 
     const handleSubmit = e => {
         e.preventDefault()
-        // console.log(activityName, activityCategory, activityDate, activityDescription)
+
         sendActivityDataToAPI()
         setActivityName("")
         setActivityDate(null)
@@ -146,13 +146,6 @@ const AddActivityForm = () => {
     }
 
     const sendActivityDataToAPI = () => {
-        // const dataToSend = {
-        //     category: activityCategory,
-        //     name: activityName,
-        //     date: activityDate,
-        //     description: activityDescription
-        // }
-        // console.log(dataToSend)
 
         fetch("http://localhost:3001/activities", {
             method: "POST",

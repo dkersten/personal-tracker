@@ -3,6 +3,7 @@ import React from 'react'
 import styled from 'styled-components'
 
 import { CardBaseStyling } from '../mixins'
+import { renderActivityIcons } from '../renderActivityIcons'
 
 // styling
     const Card = styled.div`
@@ -93,28 +94,6 @@ import { CardBaseStyling } from '../mixins'
 
 const ActivityTrackerCard = (props) => {
 
-    // function that dynamically returns an icon based on activity category
-    const renderActivityIcon = () => {
-        
-        if (props.category === 'Exercise') {
-            return(
-                <i className="fad fa-running"></i>
-            )
-        } else if (props.category === 'Career Growth') {
-            return(
-                <i className="fad fa-code"></i>
-            )
-        } else if (props.category === 'Personal Finance') {
-            return(
-                <i className="fad fa-sack-dollar"></i>
-            )
-        } else if (props.category === 'Personal Growth') {
-            return(
-                <i className="fad fa-user-astronaut"></i>
-            )
-        }
-    }
-
     // function that dynamically styles the gradient bar on top of the card based on activity category
     const renderActivityGradientIndicator = () => {
 
@@ -163,7 +142,7 @@ const ActivityTrackerCard = (props) => {
             <div className="top">
                 <h3>{props.category}: {props.name}</h3>
                 <span className="activity">
-                    { renderActivityIcon() }
+                    { renderActivityIcons(props.category) }
                 </span>
             </div>
             <span className="date">
