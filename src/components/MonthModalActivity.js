@@ -7,7 +7,25 @@ import { renderActivityIcons } from '../renderActivityIcons'
 
 const ActivityModalCard = styled.div`
     width: 100%;
-    margin-bottom: .75rem;
+    margin-bottom: 1rem;
+    display: flex;
+    background: #252A2E;
+    padding: .75rem 1rem;
+    border-radius: 5px;
+
+    &:last-of-type {
+        margin-bottom: .75rem;
+    }
+
+    .left {
+        flex-basis: 70px;
+
+        i {
+            font-size: 2.25rem;
+            margin-top: 6px;
+            color: #FD3E58;
+        }
+    }
 
     h4.activity-title {
         ${defaultFont}

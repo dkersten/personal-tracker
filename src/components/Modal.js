@@ -21,10 +21,11 @@ import { MonthModalActivity } from '../components/MonthModalActivity'
         .modal-header {
             border-bottom: none;
             padding-top: .25rem;
-            padding-bottom: 0;
+            padding-bottom: .5rem;
             
             h3, h3 span {
-                font-size: 1.5rem;
+                font-size: 1.75rem;
+                font-weight: 700;
                 width: 100%;
                 text-align: center;
                 ${defaultFont}
