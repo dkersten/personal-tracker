@@ -6,6 +6,7 @@ import ActivitiesContainer from './ActivitiesContainer'
 import TrackerContainer from './TrackerContainer'
 import GoalsContainer from './GoalsContainer'
 import StatsContainer from './StatsContainer'
+import PlanningContainer from './PlanningContainer'
 import Welcome from '../components/Welcome'
 
 // styling
@@ -34,6 +35,7 @@ const MainContainer = () => {
                 <Route path="/activities" render={() => <ActivitiesContainer />} />
                 <Route path="/tracker" render={() => <TrackerContainer />} />
                 <Route path="/goals" render={() => <GoalsContainer />} />
+                <Route path="/planning" render={() => <PlanningContainer />} />
                 <Route path="/stats" render={() => <StatsContainer />} />
             </Switch>
         </Main>

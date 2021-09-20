@@ -12,13 +12,13 @@ const Paragraph = styled.p`
     ${ defaultFont }
 `
 
-const StatsContainer = () => {
+const PlanningContainer = () => {
     return (
         <div>
-            <Heading>Track Your Stats</Heading>
+            <Heading>Plan Ahead to Accomplish Your Goals</Heading>
             <Paragraph>Coming Soon...</Paragraph>
         </div>
     )
 }
 
-export default StatsContainer
+export default PlanningContainer
