@@ -9,6 +9,7 @@ import { closeModal } from '../actions/modalActions'
 import { modalState } from '../stateSelectors'
 
 import { MonthModalActivity } from '../components/MonthModalActivity'
+import { YearModalActivity } from './YearModalActivity'
 
 // styling
     const GeneralModal = styled(Modal)`
@@ -62,6 +63,7 @@ const ReusableModal = () => {
 
     const [modalIsOpen, setModalIsOpen] = useState(false)
     const [dayActivities, setDayActivities] = useState(null)
+    const [monthActivities, setMonthActivities] = useState(null)
 
     useEffect(() => {
         if (state.modalType !== null) {
@@ -71,6 +73,8 @@ const ReusableModal = () => {
                 fetch(`http://localhost:3001/activities/date/${state.modalProps}`)
                     .then(resp => resp.json())
                     .then(activities => setDayActivities(activities))
+            } else if (state.modalType === 'yearView') {
+                // fetch data for the correct month
             }
 
         } else if (state.modalType === null) {
@@ -85,7 +89,7 @@ const ReusableModal = () => {
 
             return (<span>Activities for: {state.modalProps}</span>)
         } else if (state.modalType === 'yearView') {
-            return ('Year View')
+            return ('Year Views')
         } else {
             return null
         }
@@ -111,6 +115,25 @@ const ReusableModal = () => {
         
     }
 
+    const RenderYearView = () => {
+        const activitiesArr = []
+
+        if (monthActivities !== null) {
+            for (let i = 0; i < monthActivities.length; i++) {
+                activitiesArr.push(<YearModalActivity
+                        key={i}
+                        category={dayActivities[i].category}
+                        name={dayActivities[i].name}
+                        description={dayActivities[i].description}
+                    /> )
+            }
+
+            return activitiesArr
+        } else {
+            return "please wait"
+        }
+    }
+
     const closeModalEventHandler = () => {
         dispatch(closeModal())
     }
@@ -125,8 +148,9 @@ const ReusableModal = () => {
                 <h3>{renderHeader()}</h3>
             </Modal.Header>
             <Modal.Body>
-                { state.modalType === "monthView" ? renderMonthView() : "no activities"}
-                { state.modalType === "yearView" ? 'year view' : null}
+                { state.modalType === "monthView" ? renderMonthView() : null}
+
+                { state.modalType === "yearView" ? RenderYearView() : null}
             </Modal.Body>
             <Modal.Footer>
                 <button onClick={closeModalEventHandler}>Close</button>
